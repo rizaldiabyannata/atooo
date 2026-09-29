@@ -1,0 +1,413 @@
+<title>Penawaran Sistem Pridata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: satu lembar dokumen penawaran, kepala surat bergaya dokumen distribusi, isi satu kolom dengan tabel dan kartu seperlunya */
+:root{
+  --bg:#eef2f3; --paper:#ffffff; --ink:#14222c; --muted:#556570; --line:#d5dde1;
+  --accent:#0b6a60; --accent-soft:#e2f0ed; --amber:#9a5a0c; --amber-soft:#f6ead9;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1419; --paper:#141e25; --ink:#e3eaee; --muted:#98a8b3; --line:#27363f;
+  --accent:#55bcae; --accent-soft:#12302d; --amber:#e3a55b; --amber-soft:#30261a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1419; --paper:#141e25; --ink:#e3eaee; --muted:#98a8b3; --line:#27363f;
+  --accent:#55bcae; --accent-soft:#12302d; --amber:#e3a55b; --amber-soft:#30261a; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding:32px 16px 64px}
+.sheet{max-width:880px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:48px clamp(20px,5vw,56px)}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;font-stretch:88%;letter-spacing:-.01em}
+h2{font-size:clamp(22px,3.4vw,28px);font-weight:750;font-stretch:90%;display:flex;gap:14px;align-items:baseline}
+h2 .no{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--accent);letter-spacing:.04em}
+h3{font-size:18px;font-weight:700;font-stretch:95%}
+p{margin:0;max-width:68ch}
+section{display:flex;flex-direction:column;gap:18px;padding-block:40px;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.ph{background:var(--amber-soft);color:var(--amber);padding:0 6px;border-radius:3px;font-family:var(--mono);font-size:.9em}
+strong{font-weight:600}
+ul,ol{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+li{max-width:68ch}
+
+/* kepala surat */
+.letterhead{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:flex-start;padding-bottom:24px;border-bottom:2px solid var(--ink)}
+.brand{font-family:var(--display);font-weight:800;font-size:22px;font-stretch:80%;letter-spacing:.02em}
+.brand span{color:var(--accent)}
+.docmeta{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:14px}
+.docmeta dt{color:var(--muted)}
+.docmeta dd{margin:0;font-family:var(--mono);font-size:13px}
+.hero{display:flex;flex-direction:column;gap:18px;padding-block:32px 8px}
+.lede{font-size:18px;max-width:62ch}
+
+/* angka kunci */
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.key{border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.key .lbl{font-size:13px;color:var(--muted)}
+.key .val{font-family:var(--display);font-weight:800;font-size:26px;font-stretch:85%;font-variant-numeric:tabular-nums}
+.key .note{font-size:13px;color:var(--muted)}
+.key.primary{background:var(--accent-soft);border-color:transparent}
+.key.primary .val{color:var(--accent)}
+
+/* tabel */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--bg)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--mono);font-size:13.5px}
+tr.total td{font-weight:600;background:var(--accent-soft)}
+tr.total td.num{color:var(--accent)}
+.strike{text-decoration:line-through;color:var(--muted)}
+
+/* kotak */
+.note-box{border-left:3px solid var(--amber);background:var(--amber-soft);padding:14px 18px;border-radius:0 6px 6px 0;display:flex;flex-direction:column;gap:8px}
+.note-box.teal{border-left-color:var(--accent);background:var(--accent-soft)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.cols > *{min-width:0}
+.panel{border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.panel h3 .tag{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--muted);margin-left:6px}
+.state{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px;border:1px solid currentColor}
+.state.ok{color:var(--accent)}
+.state.next{color:var(--amber)}
+
+/* fitur */
+.levels{display:flex;height:14px;border-radius:3px;overflow:hidden;border:1px solid var(--line)}
+.levels span{display:block}
+.lv-legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13.5px}
+.lv-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:baseline}
+.l1{background:color-mix(in srgb,var(--accent) 22%,var(--paper))}
+.l2{background:color-mix(in srgb,var(--accent) 45%,var(--paper))}
+.l3{background:color-mix(in srgb,var(--accent) 72%,var(--paper))}
+.l4{background:var(--accent)}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.feat .panel{gap:8px}
+.feat ul{list-style:none;padding:0;gap:4px;font-size:14px}
+.feat li b{font-weight:600}
+.count{font-family:var(--mono);font-size:12px;color:var(--accent)}
+
+/* langkah */
+.steps{list-style:none;padding:0;gap:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);max-width:none}
+.steps li:last-child{border-bottom:0}
+.steps li::before{content:counter(s);font-family:var(--mono);font-weight:500;color:var(--accent);border:1px solid var(--accent);border-radius:50%;width:30px;height:30px;display:grid;place-items:center;font-size:13px}
+.steps .when{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+
+.clauses{list-style:none;padding:0;gap:14px;counter-reset:c}
+.clauses > li{counter-increment:c;display:grid;grid-template-columns:48px 1fr;gap:8px;max-width:none}
+.clauses > li::before{content:"Ps. " counter(c);font-family:var(--mono);font-size:12.5px;color:var(--accent);padding-top:3px}
+.clauses h3{font-size:16px;margin-bottom:4px}
+
+.sign{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:8px}
+.sign div{border-top:1px solid var(--ink);padding-top:8px;font-size:14px}
+footer{margin-top:28px;font-size:12.5px;color:var(--muted)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:520px){ body{padding:16px 16px 40px} .sheet{padding:28px 16px} }
+</style>
+
+<main class="sheet">
+
+  <header class="letterhead">
+    <div>
+      <div class="brand">ATO<span>·</span>TEAM</div>
+      <div class="small muted">Sistem Distribusi &amp; ERP · Mataram, Nusa Tenggara Barat</div>
+    </div>
+    <dl class="docmeta">
+      <dt>Nomor</dt><dd><span class="ph">[nomor penawaran]</span></dd>
+      <dt>Tanggal</dt><dd><span class="ph">[tanggal]</span></dd>
+      <dt>Kepada</dt><dd>Pemilik CV Pridata Jaya, Mataram</dd>
+      <dt>Perihal</dt><dd>Penawaran Sistem Distribusi, ERP &amp; Modul Penerimaan Barang</dd>
+      <dt>Berlaku</dt><dd>30 hari sejak tanggal penawaran</dd>
+    </dl>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">Penawaran Mitra Pengguna Pertama</div>
+    <h1>Satu sistem untuk pesanan, gudang, penagihan, dan piutang Anda. Dengan barang masuk yang dicocokkan sebelum stok bertambah.</h1>
+    <p class="lede">Anda mencoba dulu tanpa biaya. Pembayaran baru dimulai setelah sistem terbukti layak di usaha Anda, dan sisanya dibayar mengikuti hasil: saat go-live, lalu saat Modul Penerimaan Barang lulus uji di gudang Anda sendiri.</p>
+    <div class="keys">
+      <div class="key"><span class="lbl">Trial 30–60 hari</span><span class="val">Rp 0</span><span class="note">Dipakai berdampingan dengan cara kerja sekarang</span></div>
+      <div class="key primary"><span class="lbl">Harga sistem, milik selamanya</span><span class="val">Rp 30.000.000</span><span class="note">3 termin setelah hasil terlihat, termasuk Modul Penerimaan Barang dan server 24 bulan</span></div>
+      <div class="key"><span class="lbl">Dukungan tahunan</span><span class="val">Rp 1.250.000<small style="font-size:14px;font-weight:600">/bln</small></span><span class="note">Mulai 3 bulan setelah go-live, harga dikunci 3 tahun</span></div>
+    </div>
+  </div>
+
+  <section id="ringkasan">
+    <h2><span class="no">01</span>Apa yang berubah di operasional Anda</h2>
+    <p>Sistem ini dibangun dari alur kerja distributor: toko memesan, fakturis menerbitkan invoice, gudang menyiapkan dan mengirim, sales menagih, akuntan mencatat pembayaran. Semua orang bekerja di data yang sama, sesuai perannya.</p>
+    <div class="tw"><table>
+      <thead><tr><th style="width:24%">Pekerjaan</th><th>Sekarang, umumnya</th><th>Dengan sistem ini</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Pesanan toko</strong></td><td>Lewat telepon atau WhatsApp, disalin manual</td><td>Masuk sebagai pesanan, langsung menjadi draf invoice. Toko juga bisa memesan sendiri.</td></tr>
+        <tr><td><strong>Harga &amp; diskon</strong></td><td>Diingat atau dicek di tabel</td><td>Otomatis mengikuti grade toko, sama untuk semua sales</td></tr>
+        <tr><td><strong>Pengiriman</strong></td><td>Status ditanyakan satu per satu</td><td>Delivery Order dengan status ambil → kemas → kirim → diterima toko</td></tr>
+        <tr><td><strong>Stok</strong></td><td>Angka akhir tanpa riwayat</td><td>Setiap perubahan stok tercatat di buku besar beserta sebabnya, per gudang</td></tr>
+        <tr><td><strong>Piutang</strong></td><td>Direkap menjelang akhir bulan</td><td>Umur piutang per toko terlihat setiap saat, termasuk bukti transfer yang diunggah toko</td></tr>
+        <tr><td><strong>Laporan</strong></td><td>Disusun manual</td><td>Dasbor per peran, ekspor Excel/PDF, dan laporan bulanan yang terbit sendiri</td></tr>
+        <tr><td><strong>Barang masuk</strong></td><td>Diketik, selisih baru ketahuan saat opname</td><td>Dicocokkan dengan dokumen saat barang masih di depan gudang (Modul Penerimaan Barang, bagian 02)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="barang-masuk">
+    <h2><span class="no">02</span>Soal salah catat barang masuk</h2>
+    <p>Kami tahu ini masalah utama Anda, jadi kami bahas di depan. Tidak ada software yang bisa menghapus salah hitung manusia. Yang bisa dilakukan software ada tiga: mengurangi peluang salah input, menangkap kesalahan lebih awal, dan membuat kesalahan bisa dilacak serta murah dikoreksi.</p>
+    <div class="cols">
+      <div class="panel">
+        <span class="state ok">Sudah ada</span>
+        <h3>Kesalahan tercatat dan bisa dilacak</h3>
+        <ul class="small">
+          <li>Setiap penerimaan dan penyesuaian stok masuk ke buku besar stok</li>
+          <li>Stock opname dengan laporan selisih lintas gudang</li>
+          <li>Selisih bisa ditelusuri ke transaksi asalnya</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="state next">Dibangun bersama Anda</span>
+        <h3>Kesalahan dicegah di sumbernya</h3>
+        <ul class="small">
+          <li>Angka pembanding saat barang datang (PO atau surat jalan)</li>
+          <li>Operator menghitung tanpa melihat angka dokumen</li>
+          <li>Selisih besar harus disetujui supervisor sebelum stok bertambah</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Modul Penerimaan Barang, sudah termasuk dalam harga</h3>
+    <div class="tw"><table>
+      <thead><tr><th style="width:34%">Bagian modul</th><th>Yang berubah di gudang</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Satu dokumen per surat jalan</strong></td><td>Supplier dan nomor surat jalan wajib diisi sekali. Surat jalan yang sama tidak bisa tercatat dua kali.</td></tr>
+        <tr><td><strong>Pesanan pembelian ke supplier</strong></td><td>Menjadi angka pembanding. Bila pemesanan Anda lewat telepon atau WhatsApp, pencocokan memakai surat jalan. Kami sesuaikan saat trial.</td></tr>
+        <tr><td><strong>Pencocokan tiga arah</strong></td><td>Pesanan, surat jalan, dan hitungan fisik dibandingkan <em>sebelum</em> stok bertambah</td></tr>
+        <tr><td><strong>Hitung buta</strong></td><td>Operator mengisi hasil hitungan tanpa melihat angka dokumen, sehingga benar-benar menghitung, bukan menyalin</td></tr>
+        <tr><td><strong>Persetujuan selisih</strong></td><td>Selisih di atas batas yang Anda tentukan menunggu persetujuan supervisor</td></tr>
+        <tr><td><strong>Pelaku tercatat</strong></td><td>Setiap penerimaan dan setiap perubahan catatan stok menyimpan siapa, kapan, dan nilai sebelum-sesudahnya</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="note-box teal">
+      <strong>Target yang kami ukur pada data Anda sendiri</strong>
+      <ul class="small">
+        <li>Selisih terhadap dokumen terdeteksi <strong>di hari barang diterima</strong>, bukan saat opname</li>
+        <li><strong>100%</strong> penerimaan baru tercatat suppliernya</li>
+        <li><strong>100%</strong> perubahan catatan stok memiliki jejak audit</li>
+        <li><strong>Nol</strong> surat jalan yang tercatat ganda atau setengah jalan</li>
+      </ul>
+      <p class="small">Termin ketiga baru jatuh tempo setelah keempat target ini tercapai. Penurunan selisih opname akan kami laporkan setiap bulan, tetapi tidak kami janjikan dalam angka, karena itu juga bergantung pada disiplin di gudang.</p>
+    </div>
+  </section>
+
+  <section id="fitur">
+    <h2><span class="no">03</span>Isi sistem: 47 fitur yang sudah berjalan</h2>
+    <p>Dibangun oleh dua pengembang penuh waktu selama enam bulan, sekitar 252 hari kerja. Lebih dari separuh fitur menyentuh uang, stok, atau fondasi keamanan, bagian yang paling mahal bila salah.</p>
+    <div class="levels" role="img" aria-label="Komposisi fitur: 8 dasar, 12 alur kerja, 14 transaksi uang dan stok, 13 fondasi sistem">
+      <span class="l1" style="width:17%"></span><span class="l2" style="width:25.5%"></span><span class="l3" style="width:29.8%"></span><span class="l4" style="width:27.7%"></span>
+    </div>
+    <div class="lv-legend muted">
+      <span><i class="l1"></i>8 data dasar</span>
+      <span><i class="l2"></i>12 alur kerja &amp; hak akses</span>
+      <span><i class="l3"></i>14 transaksi uang &amp; stok</span>
+      <span><i class="l4"></i>13 fondasi sistem</span>
+    </div>
+    <div class="feat">
+      <div class="panel"><h3>Data induk <span class="count">6</span></h3><ul>
+        <li><b>Brand, kategori, kota</b></li><li><b>Divisi &amp; sub-divisi</b></li><li><b>Supplier</b></li><li><b>Gudang</b>, termasuk multi-gudang</li><li><b>Produk</b>, kode, satuan, harga dasar</li><li><b>Impor produk dari Excel</b> dengan validasi per baris</li></ul></div>
+      <div class="panel"><h3>Penjualan &amp; pelanggan <span class="count">7</span></h3><ul>
+        <li><b>Toko &amp; registrasi toko</b>, diverifikasi fakturis</li><li><b>Grade toko</b> yang menentukan harga &amp; diskon</li><li><b>Penugasan sales ke toko</b></li><li><b>Katalog digital</b> untuk sales di lapangan</li><li><b>Pesanan</b> sampai siap diproses gudang</li><li><b>Pesanan dari toko</b> langsung</li><li><b>Target &amp; KPI sales</b> dengan peringkat</li></ul></div>
+      <div class="panel"><h3>Penagihan, piutang &amp; kas <span class="count">7</span></h3><ul>
+        <li><b>Draf invoice → invoice</b> yang tidak bisa diubah diam-diam</li><li><b>Invoice tunai</b></li><li><b>Invoice PDF</b> sesuai layout Anda</li><li><b>Pembayaran</b> sebagian atau penuh</li><li><b>Bukti transfer</b> diunggah toko, disetujui akuntan</li><li><b>Umur piutang</b> per toko</li><li><b>Buku invoice &amp; saldo kredit toko</b>, aman dari transaksi bersamaan</li></ul></div>
+      <div class="panel"><h3>Gudang &amp; persediaan <span class="count">8</span></h3><ul>
+        <li><b>Delivery Order</b> ambil → kemas → kirim → diterima</li><li><b>Driver</b></li><li><b>Pengguna per gudang</b></li><li><b>Transfer antar gudang</b></li><li><b>Penyesuaian stok</b> dengan alasan tercatat</li><li><b>Stock opname</b> &amp; laporan selisih</li><li><b>Retur barang</b>, terhubung ke saldo toko</li><li><b>Buku besar stok</b>, satu-satunya pintu perubahan stok</li></ul></div>
+      <div class="panel"><h3>Laporan &amp; analitik <span class="count">6</span></h3><ul>
+        <li><b>Dasbor per peran</b>: toko, sales, gudang, fakturis, akuntan, digital marketing</li><li><b>Analitik pemilik &amp; akuntan</b></li><li><b>Ekspor</b> CSV, Excel, PDF</li><li><b>Template laporan</b></li><li><b>Laporan bulanan otomatis</b></li><li><b>Riwayat ekspor</b>: siapa mengunduh apa</li></ul></div>
+      <div class="panel"><h3>Pengguna &amp; keamanan <span class="count">6</span></h3><ul>
+        <li><b>Hak akses berlapis</b> per jabatan dan lingkup kerja</li><li><b>Kelola pengguna</b></li><li><b>Daftar peran</b></li><li><b>Profil pengguna</b></li><li><b>Pembatasan toko</b>: sales hanya melihat tokonya</li><li><b>Jejak audit</b> perubahan data penting</li></ul></div>
+      <div class="panel"><h3>Otomasi &amp; integrasi <span class="count">4</span></h3><ul>
+        <li><b>Notifikasi</b> peristiwa penting</li><li><b>Layar diperbarui seketika</b> tanpa muat ulang</li><li><b>Pekerjaan berat di latar</b>: ekspor &amp; laporan besar</li><li><b>Kunci API</b> untuk sistem lain</li></ul></div>
+      <div class="panel"><h3>Keandalan <span class="count">3</span></h3><ul>
+        <li><b>Perlindungan akses</b>: batas percobaan login</li><li><b>Log terstruktur</b> untuk menelusuri gangguan</li><li><b>Uji otomatis</b> setiap pembaruan</li></ul></div>
+    </div>
+  </section>
+
+  <section id="layanan">
+    <h2><span class="no">04</span>Layanan yang Anda terima</h2>
+    <div class="cols">
+      <div class="panel">
+        <h3>Trial <span class="tag">30–60 hari · Rp 0</span></h3>
+        <ul class="small">
+          <li>Sistem berjalan di lingkungan uji kami, terpisah dari pihak lain</li>
+          <li>Data master Anda kami pindahkan: produk, toko, supplier, gudang</li>
+          <li>Kami ukur bersama selisih barang masuk saat ini sebagai titik awal</li>
+          <li>Bila tidak lanjut, data Anda kami hapus dan konfirmasi tertulis</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Implementasi <span class="tag">setelah deal</span></h3>
+        <ul class="small">
+          <li>Server (VPS) atas nama Anda, dibeli dari termin pertama, 24 bulan</li>
+          <li>Pemindahan data dari lingkungan trial ke server Anda</li>
+          <li>Pengaturan peran, gudang, grade toko, target sales, template invoice, DO, dan surat jalan</li>
+          <li>Saldo awal stok dan piutang dari Excel</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Pelatihan &amp; go-live</h3>
+        <ul class="small">
+          <li>3 sesi pelatihan per peran: admin &amp; fakturis, sales, gudang &amp; akuntan</li>
+          <li>Panduan pengguna tertulis</li>
+          <li>Pendampingan di lokasi 2 hari saat go-live</li>
+          <li>Dukungan jarak jauh intensif 2 minggu setelah go-live</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Garansi <span class="tag">3 bulan</span></h3>
+        <ul class="small">
+          <li>Semua cacat sistem diperbaiki tanpa biaya selama 3 bulan sejak go-live</li>
+          <li>Selama garansi, dukungan tahunan belum ditagih</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Dukungan tahunan (Rp 1.250.000/bulan)</h3>
+    <div class="tw"><table>
+      <thead><tr><th style="width:36%">Layanan</th><th>Isi</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bantuan pengguna</strong></td><td>Lewat WhatsApp atau tiket, sampai ±4 jam per bulan, hari kerja</td></tr>
+        <tr><td><strong>Waktu tanggap</strong></td><td>Paling lambat 1 hari kerja. Gangguan kritis (sistem tidak bisa dipakai atau data salah) diprioritaskan di hari kerja yang sama.</td></tr>
+        <tr><td><strong>Perbaikan bug</strong></td><td>Bug kritis segera. Bug lain masuk rilis perbaikan berkala.</td></tr>
+        <tr><td><strong>Pembaruan keamanan</strong></td><td>Patch keamanan dan pembaruan komponen sistem</td></tr>
+        <tr><td><strong>Backup</strong></td><td>Backup harian otomatis ke lokasi terpisah dari server, dengan uji pemulihan 1× per tahun</td></tr>
+        <tr><td><strong>Pengelolaan server</strong></td><td>Pemantauan server dan pengingat perpanjangan 60 hari sebelum jatuh tempo</td></tr>
+        <tr><td><strong>Harga</strong></td><td>Terkunci 3 tahun. Boleh dibayar bulanan.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Di luar harga, dihitung terpisah dengan estimasi tertulis</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Item</th><th class="num">Tarif</th></tr></thead>
+      <tbody>
+        <tr><td>Fitur baru, perubahan alur, atau laporan khusus</td><td class="num">Rp 1.750.000 / hari kerja</td></tr>
+        <tr><td>Kunjungan ke lokasi di luar go-live</td><td class="num">Rp 1.750.000 / hari</td></tr>
+        <tr><td>Pelatihan tambahan &amp; migrasi data historis</td><td class="num">Rp 1.750.000 / hari kerja</td></tr>
+        <tr><td>Integrasi e-faktur, bank, marketplace</td><td class="num">Perlu kajian dulu</td></tr>
+        <tr><td>Aplikasi mobile khusus</td><td class="num">Dapat dibahas terpisah</td></tr>
+        <tr><td>Perangkat keras: scanner, printer, jaringan</td><td class="num">Disediakan pembeli</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="dasar-harga">
+    <h2><span class="no">05</span>Dasar harga</h2>
+    <p>Harga ini kami susun dari tiga hal: apa yang sudah dibangun, manfaat yang bisa dihitung untuk usaha seukuran Anda, dan peran Anda sebagai pengguna pertama.</p>
+
+    <h3>Manfaat yang bisa dihitung, perkiraan konservatif per tahun</h3>
+    <p class="small muted">Untuk distributor dengan omzet sekitar Rp 2 miliar per tahun. Angka ini akan kami ukur ulang bersama Anda 6 bulan setelah go-live.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Sumber manfaat</th><th>Dasar perkiraan</th><th class="num">Per tahun</th></tr></thead>
+      <tbody>
+        <tr><td>Waktu administrasi</td><td>Rekap pesanan, invoice, dan piutang: ±2 jam per hari, dihitung setengahnya</td><td class="num">Rp 9.000.000</td></tr>
+        <tr><td>Waktu rekap akuntansi</td><td>±1 hari per bulan, dihitung setengahnya</td><td class="num">Rp 2.100.000</td></tr>
+        <tr><td>Piutang macet berkurang</td><td>Umur piutang per toko terlihat setiap saat</td><td class="num">Rp 1.500.000</td></tr>
+        <tr><td>Salah harga &amp; diskon</td><td>Harga otomatis per grade toko</td><td class="num">Rp 1.000.000</td></tr>
+        <tr><td>Selisih stok berkurang</td><td>Buku besar stok dan opname</td><td class="num">Rp 750.000</td></tr>
+        <tr><td>Penagihan lebih cepat</td><td>Piutang tertagih ±5 hari lebih awal</td><td class="num">Rp 300.000</td></tr>
+        <tr class="total"><td colspan="2">Jumlah manfaat yang bisa dihitung</td><td class="num">±Rp 14.650.000</td></tr>
+      </tbody>
+    </table></div>
+    <p>Biaya dukungan tahunan Anda (Rp 15.000.000) kira-kira setara dengan manfaat yang bisa dihitung saja. Dua manfaat terbesar belum masuk tabel: <strong>pencegahan salah catat barang masuk</strong>, yang nilainya bergantung pada besar selisih Anda saat ini dan akan kami ukur selama trial, serta <strong>kendali pemilik</strong> atas siapa melakukan apa, di gudang mana, kapan.</p>
+
+    <h3>Harga standar dan harga Mitra Pengguna Pertama</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Komponen</th><th class="num">Harga standar</th><th class="num">Untuk Anda</th></tr></thead>
+      <tbody>
+        <tr><td>Lisensi selamanya + implementasi</td><td class="num">Rp 60.000.000</td><td class="num">Rp 60.000.000</td></tr>
+        <tr><td>Potongan Mitra Pengguna Pertama</td><td class="num">—</td><td class="num">− Rp 30.000.000</td></tr>
+        <tr><td>Modul Penerimaan Barang (±27–48 hari kerja)</td><td class="num">Rp 1.750.000 / hari kerja</td><td class="num">Termasuk</td></tr>
+        <tr><td>Server VPS 24 bulan (±Rp 3,65 juta)</td><td class="num">Dibeli pembeli</td><td class="num">Termasuk</td></tr>
+        <tr class="total"><td>Harga sistem</td><td class="num"></td><td class="num">Rp 30.000.000</td></tr>
+        <tr><td>Dukungan tahunan</td><td class="num">Rp 2.000.000 / bln</td><td class="num">Rp 1.250.000 / bln</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note-box">
+      <strong>Mengapa ada harga Mitra Pengguna Pertama</strong>
+      <ul class="small">
+        <li>Anda pengguna pertama yang menjalankan sistem ini di operasional nyata</li>
+        <li>Anda menjadi mitra uji Modul Penerimaan Barang: 20 sesi uji coba di gudang Anda</li>
+        <li>Anda mengizinkan data agregat tanpa identitas dipakai untuk penelitian dan pengembangan sistem</li>
+      </ul>
+    </div>
+    <p class="small muted">Sebagai perbandingan umum: sistem ERP untuk UKM di Indonesia biasanya memerlukan biaya implementasi Rp 30–60 juta, ditambah langganan Rp 150–250 ribu per pengguna per bulan, tanpa kepemilikan. Di penawaran ini, lisensi menjadi milik Anda, jumlah pengguna tidak dibatasi, dan biaya dukungan tidak naik saat pengguna bertambah.</p>
+  </section>
+
+  <section id="harga">
+    <h2><span class="no">06</span>Rincian pembayaran</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Tahap</th><th>Kapan jatuh tempo</th><th class="num">Jumlah</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Trial</strong></td><td>30–60 hari, sistem dipakai berdampingan dengan cara lama</td><td class="num">Rp 0</td></tr>
+        <tr><td><strong>Termin 1</strong></td><td>Tanda tangan kontrak setelah trial dinyatakan layak. Server atas nama Anda dibeli dari termin ini.</td><td class="num">Rp 10.000.000</td></tr>
+        <tr><td><strong>Termin 2</strong></td><td>Go-live: transaksi harian berjalan di sistem, pelatihan selesai</td><td class="num">Rp 10.000.000</td></tr>
+        <tr><td><strong>Termin 3</strong></td><td>Modul Penerimaan Barang mencapai keempat target di bagian 02</td><td class="num">Rp 10.000.000</td></tr>
+        <tr class="total"><td colspan="2">Harga sistem</td><td class="num">Rp 30.000.000</td></tr>
+        <tr><td><strong>Dukungan</strong></td><td>Mulai bulan ke-4 setelah go-live, bulanan</td><td class="num">Rp 1.250.000 / bln</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small muted">Termin 2 dan 3 boleh dibayar dalam dua cicilan bulanan masing-masing Rp 5.000.000.</p>
+
+    <h3>Perkiraan total tiga tahun</h3>
+    <div class="tw"><table>
+      <thead><tr><th></th><th class="num">Tahun 1</th><th class="num">Tahun 2</th><th class="num">Tahun 3</th></tr></thead>
+      <tbody>
+        <tr><td>Harga sistem (termasuk server 24 bulan)</td><td class="num">Rp 30.000.000</td><td class="num">—</td><td class="num">—</td></tr>
+        <tr><td>Dukungan tahunan</td><td class="num">Rp 10.000.000</td><td class="num">Rp 15.000.000</td><td class="num">Rp 15.000.000</td></tr>
+        <tr><td>Perpanjangan server, dibayar ke penyedia</td><td class="num">—</td><td class="num">—</td><td class="num">±Rp 2.800.000</td></tr>
+        <tr class="total"><td>Jumlah</td><td class="num">Rp 40.000.000</td><td class="num">Rp 15.000.000</td><td class="num">±Rp 17.800.000</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small muted">Tahun 1 dihitung dengan asumsi go-live di bulan kedua. Perpanjangan server Hostinger KVM 2 saat ini sekitar Rp 232.900 per bulan, dibayar per dua tahun (±Rp 5,59 juta). Semua harga belum termasuk pajak yang berlaku.</p>
+  </section>
+
+  <section id="kontrak">
+    <h2><span class="no">07</span>Yang tertulis di kontrak</h2>
+    <ol class="clauses">
+      <li><div><h3>Lisensi</h3><p>Lisensi pakai selamanya dan non-eksklusif untuk CV Pridata Jaya, satu badan usaha dan satu sistem produksi, dengan jumlah pengguna tidak dibatasi. Hak cipta dan kode sumber tetap milik Ato-team. Penyesuaian yang dibuat untuk Anda tidak memindahkan kepemilikan sistem.</p></div></li>
+      <li><div><h3>Data milik Anda</h3><p>Seluruh data transaksi adalah milik CV Pridata Jaya. Anda berhak mengekspor data lengkap (Excel/CSV atau salinan basis data) kapan saja, termasuk bila berhenti berlangganan dukungan.</p></div></li>
+      <li><div><h3>Kerahasiaan</h3><p>Kerahasiaan dua arah. Data, daftar toko, harga, dan konfigurasi Anda tidak dipakai untuk pihak mana pun. Setiap akses tim kami ke server Anda tercatat. Syarat komersial penawaran ini dirahasiakan kedua pihak.</p></div></li>
+      <li><div><h3>Kerja sama riset</h3><p>Data hanya dipakai dalam bentuk agregat tanpa identitas. Data mentah tidak keluar dari server Anda. Nama Pridata tidak dipublikasikan tanpa izin tertulis. Anda menyediakan 20 sesi uji Modul Penerimaan Barang, masing-masing sekitar 3 jam dengan 1 operator gudang dan 1 supervisor, dijadwalkan bersama.</p></div></li>
+      <li><div><h3>Implementasi &amp; penerimaan</h3><p>Anda menyerahkan data master sesuai format yang disepakati dan menunjuk satu penanggung jawab. Go-live dinyatakan dengan berita acara yang ditandatangani kedua pihak.</p></div></li>
+      <li><div><h3>Modul Penerimaan Barang</h3><p>Ruang lingkup sesuai bagian 02 dan disesuaikan dengan cara pemesanan Anda saat trial. Termin 3 hanya jatuh tempo setelah keempat target tercapai pada data Anda.</p></div></li>
+      <li><div><h3>Garansi</h3><p>3 bulan sejak go-live. Cacat sistem diperbaiki tanpa biaya.</p></div></li>
+      <li><div><h3>Dukungan tahunan</h3><p>Isi layanan, waktu tanggap, dan batas jam bantuan sesuai tabel di bagian 04. Harga terkunci selama 3 tahun. Setelah itu penyesuaian paling tinggi 8% per tahun, diberitahukan 60 hari sebelumnya. Anda boleh menghentikan dukungan dengan pemberitahuan 30 hari tanpa denda. Sistem tetap bisa dipakai, tetapi tanpa pembaruan dan bantuan.</p></div></li>
+      <li><div><h3>Server</h3><p>VPS terdaftar atas nama CV Pridata Jaya, dibeli dari termin 1 untuk 24 bulan pertama. Perpanjangan selanjutnya dibayar Anda langsung ke penyedia, sebaiknya dengan perpanjangan otomatis. Kami mengelola server dan mengingatkan 60 hari sebelum jatuh tempo. Gangguan yang bersumber dari penyedia server berada di luar jaminan waktu tanggap.</p></div></li>
+      <li><div><h3>Pekerjaan tambahan</h3><p>Setiap pekerjaan di luar lingkup diberi estimasi tertulis dan disetujui sebelum dikerjakan, dengan tarif di bagian 04.</p></div></li>
+      <li><div><h3>Pembayaran &amp; pajak</h3><p>Pembayaran sesuai termin di bagian 06. Harga belum termasuk pajak yang berlaku. Penawaran berlaku 30 hari sejak tanggal di atas.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="langkah">
+    <h2><span class="no">08</span>Langkah berikutnya</h2>
+    <ol class="steps">
+      <li><div><strong>Persetujuan trial</strong><div class="when">Minggu ini</div><p class="small">Kita sepakati jadwal dan penanggung jawab di pihak Anda.</p></div></li>
+      <li><div><strong>Trial 30–60 hari</strong><div class="when">Tanpa biaya</div><p class="small">Data master dipindahkan, tim Anda mulai memakai sistem, dan selisih barang masuk saat ini diukur.</p></div></li>
+      <li><div><strong>Deal &amp; termin 1</strong><div class="when">Setelah trial layak</div><p class="small">Kontrak ditandatangani, server atas nama Anda dibeli, dan data dipindahkan ke server itu.</p></div></li>
+      <li><div><strong>Go-live &amp; termin 2</strong><div class="when">±2–4 minggu setelah deal</div><p class="small">Pelatihan per peran dan pendampingan di lokasi. Garansi 3 bulan dimulai.</p></div></li>
+      <li><div><strong>Modul Penerimaan Barang &amp; termin 3</strong><div class="when">Target ≤ 6 bulan setelah deal</div><p class="small">Dibangun dan diuji bersama di gudang Anda sampai keempat target tercapai.</p></div></li>
+    </ol>
+    <p>Kontak: <span class="ph">[nama &amp; nomor WhatsApp]</span></p>
+    <div class="sign">
+      <div>Hormat kami,<br><br><br><strong>Ato-team</strong><br><span class="ph">[nama &amp; jabatan]</span></div>
+      <div>Disetujui,<br><br><br><strong>CV Pridata Jaya</strong><br><span class="ph">[nama pemilik]</span></div>
+    </div>
+  </section>
+
+  <footer>Semua harga dalam Rupiah dan belum termasuk pajak yang berlaku. Harga server mengikuti harga penyedia pada saat pembelian.</footer>
+</main>
