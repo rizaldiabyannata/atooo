@@ -93,6 +93,12 @@ tr.total td.num{color:var(--accent)}
 .feat li b{font-weight:600}
 .count{font-family:var(--mono);font-size:12px;color:var(--accent)}
 
+.lvl{display:inline-block;font-family:var(--mono);font-size:11.5px;padding:1px 8px;border-radius:99px;white-space:nowrap;color:var(--ink)}
+.lvl.E{background:color-mix(in srgb,var(--accent) 14%,var(--paper))}
+.lvl.M{background:color-mix(in srgb,var(--accent) 32%,var(--paper))}
+.lvl.H{background:color-mix(in srgb,var(--accent) 55%,var(--paper))}
+.lvl.A{background:var(--accent);color:var(--paper)}
+tr.grp td{background:var(--bg);font-weight:600;font-size:13.5px}
 /* langkah */
 .steps{list-style:none;padding:0;gap:0;counter-reset:s}
 .steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);max-width:none}
@@ -213,10 +219,10 @@ a{color:var(--accent)}
       <span class="l1" style="width:17%"></span><span class="l2" style="width:25.5%"></span><span class="l3" style="width:29.8%"></span><span class="l4" style="width:27.7%"></span>
     </div>
     <div class="lv-legend muted">
-      <span><i class="l1"></i>8 data dasar</span>
-      <span><i class="l2"></i>12 alur kerja &amp; hak akses</span>
-      <span><i class="l3"></i>14 transaksi uang &amp; stok</span>
-      <span><i class="l4"></i>13 fondasi sistem</span>
+      <span><i class="l1"></i>8 ringan</span>
+      <span><i class="l2"></i>12 menengah</span>
+      <span><i class="l3"></i>14 tinggi: uang &amp; stok</span>
+      <span><i class="l4"></i>13 inti: fondasi sistem</span>
     </div>
     <div class="feat">
       <div class="panel"><h3>Data induk <span class="count">6</span></h3><ul>
@@ -342,7 +348,7 @@ a{color:var(--accent)}
     <div class="tw"><table>
       <thead><tr><th>Komponen</th><th class="num">Harga standar</th><th class="num">Untuk Anda</th></tr></thead>
       <tbody>
-        <tr><td>Lisensi selamanya + implementasi</td><td class="num">Rp 60.000.000</td><td class="num">Rp 60.000.000</td></tr>
+        <tr><td>Lisensi selamanya 47 fitur + implementasi (rincian per fitur di bawah)</td><td class="num">Rp 60.000.000</td><td class="num">Rp 60.000.000</td></tr>
         <tr><td>Potongan Mitra Pengguna Pertama</td><td class="num">—</td><td class="num">− Rp 30.000.000</td></tr>
         <tr><td>Modul Penerimaan Barang (±27–48 hari kerja)</td><td class="num">Rp 1.750.000 / hari kerja</td><td class="num">Termasuk</td></tr>
         <tr><td>Penyesuaian fitur 12 poin (±9–10 hari kerja)</td><td class="num">Rp 1.750.000 / hari kerja</td><td class="num">Termasuk</td></tr>
@@ -351,6 +357,74 @@ a{color:var(--accent)}
         <tr><td>Dukungan tahunan</td><td class="num">Rp 1.500.000 / bln</td><td class="num">Rp 750.000 / bln</td></tr>
       </tbody>
     </table></div>
+<h3 id="rincian-fitur">Rincian harga per fitur</h3>
+<p>Setiap fitur dihargai menurut tingkat kerumitannya. Jumlah hari kerja per fitur berasal dari kalibrasi terhadap waktu pembangunan yang sebenarnya (252 hari kerja untuk 47 fitur), termasuk analisis, pengujian, dan pemasangan.</p>
+<div class="tw"><table><thead><tr><th>Tingkat</th><th>Artinya</th><th class="num">Fitur</th><th class="num">Hari kerja / fitur</th><th class="num">Harga standar / fitur</th><th class="num">Untuk Anda / fitur</th><th class="num">Subtotal untuk Anda</th></tr></thead><tbody>
+<tr><td><span class="lvl E">Ringan</span></td><td class="small">Data dasar, tanpa efek ke modul lain</td><td class="num">8</td><td class="num">0,8</td><td class="num">Rp 175.000</td><td class="num">Rp 87.500</td><td class="num">Rp 700.000</td></tr>
+<tr><td><span class="lvl M">Menengah</span></td><td class="small">Ada alur status, relasi data, atau pembatasan per peran</td><td class="num">12</td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td><td class="num">Rp 4.500.000</td></tr>
+<tr><td><span class="lvl H">Tinggi</span></td><td class="small">Menyentuh uang atau stok, banyak aturan bisnis</td><td class="num">14</td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td><td class="num">Rp 10.500.000</td></tr>
+<tr><td><span class="lvl A">Inti</span></td><td class="small">Fondasi yang dipakai banyak fitur sekaligus</td><td class="num">13</td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td><td class="num">Rp 14.300.000</td></tr>
+<tr class="total"><td colspan="2">47 fitur</td><td class="num">47</td><td class="num">252,0</td><td class="num">Rp 60.000.000</td><td class="num"></td><td class="num">Rp 30.000.000</td></tr>
+</tbody></table></div>
+<div class="tw"><table><thead><tr><th>Fitur</th><th>Tingkat</th><th class="num">Hari kerja</th><th class="num">Harga standar</th><th class="num">Untuk Anda</th></tr></thead><tbody>
+<tr class="grp"><td colspan="2">Data induk <span class="muted">· 6 fitur</span></td><td class="num">15,6</td><td class="num">Rp 3.650.000</td><td class="num">Rp 1.825.000</td></tr>
+<tr><td>Brand, kategori, kota</td><td><span class="lvl E">Ringan</span></td><td class="num">0,8</td><td class="num">Rp 175.000</td><td class="num">Rp 87.500</td></tr>
+<tr><td>Divisi &amp; sub-divisi</td><td><span class="lvl E">Ringan</span></td><td class="num">0,8</td><td class="num">Rp 175.000</td><td class="num">Rp 87.500</td></tr>
+<tr><td>Supplier</td><td><span class="lvl E">Ringan</span></td><td class="num">0,8</td><td class="num">Rp 175.000</td><td class="num">Rp 87.500</td></tr>
+<tr><td>Gudang</td><td><span class="lvl E">Ringan</span></td><td class="num">0,8</td><td class="num">Rp 175.000</td><td class="num">Rp 87.500</td></tr>
+<tr><td>Produk</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr><td>Impor produk dari Excel</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr class="grp"><td colspan="2">Penjualan &amp; pelanggan <span class="muted">· 7 fitur</span></td><td class="num">28,0</td><td class="num">Rp 6.750.000</td><td class="num">Rp 3.375.000</td></tr>
+<tr><td>Toko &amp; registrasi toko</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr><td>Grade toko (harga &amp; diskon otomatis)</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr><td>Penugasan sales ke toko</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr><td>Katalog digital</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr><td>Pesanan</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Pesanan dari toko</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr><td>Target &amp; KPI sales</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr class="grp"><td colspan="2">Penagihan, piutang &amp; kas <span class="muted">· 7 fitur</span></td><td class="num">46,7</td><td class="num">Rp 11.200.000</td><td class="num">Rp 5.600.000</td></tr>
+<tr><td>Draf invoice → invoice</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Invoice tunai</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Invoice PDF</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Pembayaran</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Bukti transfer dari toko</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Umur piutang</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Buku invoice &amp; saldo kredit toko</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr class="grp"><td colspan="2">Gudang &amp; persediaan <span class="muted">· 8 fitur</span></td><td class="num">44,3</td><td class="num">Rp 10.625.000</td><td class="num">Rp 5.312.500</td></tr>
+<tr><td>Delivery Order</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Driver</td><td><span class="lvl E">Ringan</span></td><td class="num">0,8</td><td class="num">Rp 175.000</td><td class="num">Rp 87.500</td></tr>
+<tr><td>Pengguna per gudang</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr><td>Transfer antar gudang</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Penyesuaian stok</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Stock opname</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Retur barang</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Buku besar stok</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr class="grp"><td colspan="2">Laporan &amp; analitik <span class="muted">· 6 fitur</span></td><td class="num">38,1</td><td class="num">Rp 9.025.000</td><td class="num">Rp 4.512.500</td></tr>
+<tr><td>Dasbor per peran</td><td><span class="lvl H">Tinggi</span></td><td class="num">6,2</td><td class="num">Rp 1.500.000</td><td class="num">Rp 750.000</td></tr>
+<tr><td>Analitik pemilik &amp; akuntan</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr><td>Laporan &amp; ekspor CSV/Excel/PDF</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr><td>Template laporan</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr><td>Laporan bulanan otomatis</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr><td>Riwayat ekspor</td><td><span class="lvl E">Ringan</span></td><td class="num">0,8</td><td class="num">Rp 175.000</td><td class="num">Rp 87.500</td></tr>
+<tr class="grp"><td colspan="2">Pengguna &amp; keamanan <span class="muted">· 6 fitur</span></td><td class="num">26,4</td><td class="num">Rp 6.250.000</td><td class="num">Rp 3.125.000</td></tr>
+<tr><td>Login &amp; hak akses berlapis</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr><td>Kelola pengguna</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr><td>Daftar peran</td><td><span class="lvl E">Ringan</span></td><td class="num">0,8</td><td class="num">Rp 175.000</td><td class="num">Rp 87.500</td></tr>
+<tr><td>Profil pengguna</td><td><span class="lvl E">Ringan</span></td><td class="num">0,8</td><td class="num">Rp 175.000</td><td class="num">Rp 87.500</td></tr>
+<tr><td>Pembatasan toko per pengguna</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr><td>Jejak audit</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr class="grp"><td colspan="2">Otomasi &amp; integrasi <span class="muted">· 4 fitur</span></td><td class="num">24,9</td><td class="num">Rp 5.900.000</td><td class="num">Rp 2.950.000</td></tr>
+<tr><td>Notifikasi</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr><td>Layar diperbarui seketika</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr><td>Pekerjaan berat di latar</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr><td>Kunci API</td><td><span class="lvl M">Menengah</span></td><td class="num">3,1</td><td class="num">Rp 750.000</td><td class="num">Rp 375.000</td></tr>
+<tr class="grp"><td colspan="2">Keandalan <span class="muted">· 3 fitur</span></td><td class="num">28,0</td><td class="num">Rp 6.600.000</td><td class="num">Rp 3.300.000</td></tr>
+<tr><td>Perlindungan akses</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr><td>Log untuk menelusuri gangguan</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr><td>Uji otomatis setiap pembaruan</td><td><span class="lvl A">Inti</span></td><td class="num">9,3</td><td class="num">Rp 2.200.000</td><td class="num">Rp 1.100.000</td></tr>
+<tr class="total"><td colspan="2">Jumlah 47 fitur</td><td class="num">252,0</td><td class="num">Rp 60.000.000</td><td class="num">Rp 30.000.000</td></tr>
+</tbody></table></div>
+<p class="small muted">Bila 47 fitur ini dibangun khusus dengan tarif kami untuk pekerjaan baru (Rp 1.750.000 per hari kerja), nilainya sekitar Rp 441.000.000. Harga standar lisensi setara sekitar 13,6% dari nilai itu, karena sistem yang sama dapat dipakai lebih dari satu usaha. Hari kerja per fitur seragam di setiap tingkat, karena kalibrasi dilakukan per tingkat, bukan dari catatan waktu per fitur.</p>
     <div class="note-box">
       <strong>Mengapa ada harga Mitra Pengguna Pertama</strong>
       <ul class="small">
