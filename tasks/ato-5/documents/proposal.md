@@ -1,6 +1,6 @@
 # Penawaran Sistem Distribusi & ERP
 
-**Untuk: CV Pridata Jaya · Mataram, Nusa Tenggara Barat**
+**Untuk: CV Pridata Jaya · Mataram, Lombok, Nusa Tenggara Barat**
 
 | | |
 |---|---|
@@ -145,6 +145,10 @@ CV Pridata Jaya diundang sebagai mitra dalam **Program Mitra Riset 2026/2027**: 
 - **Bank 10 orang-hari** permintaan perubahan, berlaku 3 tahun, tidak dapat dialihkan atau diuangkan, hangus bila tidak terpakai.
 - **ASC terkunci tanpa indeksasi selama 3 tahun.**
 - Kerahasiaan dua arah: nama dan angka Anda tidak dipublikasikan tanpa persetujuan tertulis Anda atas naskahnya.
+- **Kredit Rujukan** untuk pembeli baru di NTB yang Anda perkenalkan (§3.7).
+- Prioritas jadwal untuk Fase 2, dengan Anda sebagai mitra ujinya.
+
+**Bank 10 orang-hari, Kredit Rujukan, dan prioritas Fase 2 berlaku selama ASC Anda aktif.** Anda bebas menghentikan ASC pada akhir periode yang sudah dibayar; manfaat tersebut berhenti bersamaan.
 
 Harga mitra riset **bukan preseden** untuk perpanjangan, perluasan, modul baru, pembeli lain, maupun perusahaan satu grup. Perpanjangan setelah tahun ketiga kembali ke harga list yang berlaku saat itu, dikurangi maksimum 10% potongan loyalitas. Syarat komersial ini tunduk klausul kerahasiaan dua arah: yang boleh disebut publik oleh kedua pihak hanya harga list dalam NTB-PL-2026-09.
 
@@ -187,6 +191,21 @@ Biaya ini berjalan setiap tahun. **Kami tidak menjanjikan penghematan dalam juml
 | Pengembangan modul, laporan, atau penyesuaian di luar 47 fitur | Rp 1.750.000/orang-hari, minimum 5 orang-hari |
 | Migrasi data historis di luar saldo awal | Rp 1.750.000/orang-hari |
 | Batch pelatihan tambahan di luar 3 batch bawaan | Rp 1.750.000/orang-hari |
+
+### 3.7 Kredit Rujukan Lombok
+
+Ato-team ingin tumbuh bersama Anda di Lombok. Untuk setiap pembeli baru di NTB yang Anda perkenalkan, Anda menerima kredit atas tagihan Anda sendiri:
+
+| | |
+|---|---|
+| **Nilai kredit** | **Rp 10.500.000** per pembeli |
+| **Maksimum** | 3 kredit (**Rp 31.500.000**) |
+| **Syarat pembeli baru** | Anda perkenalkan dan tercatat tertulis di Ato-team **sebelum** pembeli menerima penawaran; menandatangani kontrak Opsi A pada **harga list**; dan sudah membayar Termin 3 |
+| **Batas waktu** | Kontrak pembeli baru ditandatangani sampai **31 Desember 2027** |
+| **Bentuk** | Mengurangi tagihan ASC atau Fase 2 Anda. Tidak dapat diuangkan dan tidak dapat dialihkan |
+| **Tidak berlaku untuk** | Afiliasi, perusahaan satu grup, atau pihak yang berhubungan keluarga dengan Anda |
+
+Pembeli baru tetap membayar harga list penuh. Kredit ini bukan potongan harga bagi mereka dan bukan preseden.
 
 ---
 
@@ -246,7 +265,7 @@ Pembayaran diikat ke milestone yang dapat diverifikasi, bukan ke tanggal kalende
 | 4 | 30 hari setelah go-live tanpa insiden kritis | Rp 35.000.000 | −Rp 17.500.000 | **Rp 17.500.000** |
 | | **Jumlah** | **Rp 175.000.000** | **−Rp 87.500.000** | **Rp 87.500.000** |
 
-- ASC ditagih **tahunan di muka** (Rp 27.500.000), pada awal bulan ke-7 setelah go-live. Pembayaran kuartalan tersedia dengan biaya administrasi **+5%**.
+- ASC ditagih **tahunan di muka** (Rp 27.500.000), pada awal bulan ke-7 setelah go-live. Untuk CV Pridata Jaya, pembayaran **kuartalan tersedia tanpa biaya administrasi**.
 - Jatuh tempo pembayaran **14 hari kalender** sejak tanggal invoice, kecuali disepakati lain tertulis.
 - Invoice dan kontrak menampilkan harga list penuh, lalu baris potongan terpisah. Invoice ASC menampilkan `Potongan Program Mitra Riset: Rp 0`.
 
