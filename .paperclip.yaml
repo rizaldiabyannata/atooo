@@ -1,0 +1,832 @@
+schema: "paperclip/v1"
+agents:
+  ace:
+    role: "general"
+    adapter:
+      config:
+        dangerouslySkipPermissions: true
+      type: "claude_local"
+    runtime:
+      aiConnection:
+        method: "subscription"
+        mode: "responsible_user"
+        provider: "anthropic"
+      heartbeat:
+        intervalSec: 300
+        skipTimerWhenNoActionableWork: true
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "tasks:assign"
+  bayu:
+    role: "pm"
+    icon: "microscope"
+    capabilities: "Reads the Pridata ERP codebase to establish what is really implemented, traces operational pain such as inbound-goods human error to its root cause, and writes buildable module specs with effort ranges and measurable targets."
+    adapter:
+      type: "claude_local"
+    runtime:
+      aiConnection:
+        method: "subscription"
+        mode: "responsible_user"
+        provider: "anthropic"
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "tasks:assign"
+  rani:
+    role: "researcher"
+    icon: "target"
+    capabilities: "Reconstructs build cost, sets defensible list prices for the NTB market, structures research-partner discounts against named consideration, and designs sales models and payment terms."
+    adapter:
+      type: "claude_local"
+    runtime:
+      aiConnection:
+        method: "subscription"
+        mode: "responsible_user"
+        provider: "anthropic"
+    permissions:
+      canCreateAgents: true
+      canCreateSkills: true
+    permissionGrants:
+      -
+        permissionKey: "tasks:assign"
+blobs:
+  -
+    byteSize: 18186
+    contentType: "application/octet-stream"
+    sha256: "1e4860268b407ce75e56078ecbefeeb3bde1e53e93be522a5a1ebd1f8460d862"
+  -
+    byteSize: 6127
+    contentType: "application/octet-stream"
+    sha256: "9fa01b329c5aa37ed190d97232b81101dd4dbe37ffdbe86eaf055f3353372b8e"
+  -
+    byteSize: 14425
+    contentType: "application/octet-stream"
+    sha256: "c91ffa46ef4d545e8db17cc06744f602cd3abf0a1ae1d551b3c0b1ffb2e8cea1"
+projects:
+  onboarding:
+    status: "in_progress"
+schemaVersion: 7
+sidebar:
+  agents:
+    - "ace"
+    - "bayu"
+    - "rani"
+  projects:
+    - "onboarding"
+tasks:
+  ato-1:
+    attachments:
+      -
+        byteSize: 6127
+        commentIndex: 3
+        contentType: "text/markdown"
+        originalFilename: "2026-09-28 - Peta Fitur dan Tingkat Kesulitan ERP Pridata.md"
+        sha256: "9fa01b329c5aa37ed190d97232b81101dd4dbe37ffdbe86eaf055f3353372b8e"
+    blockedBy:
+      - "ato-5"
+    comments:
+      -
+        metadata:
+          version: 1
+          authorizationReason: "onboarding first-task greeting"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "onboarding first-task greeting"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "Welcome to Paperclip! I'm Ace, your first agent teammate. Pick how you'd like to start and I'll take it from there."
+        createdAt: "2026-09-28T06:03:06.489Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_self"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_self"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "Four questions are waiting in the card above. Once you answer, I'll write a plan and propose an agent team for you to approve."
+        createdAt: "2026-09-28T06:04:18.788Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_self"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_self"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "Rencananya sudah saya tulis — lihat **Plan** di sidebar kanan ([Plan](/ATO/issues/ATO-1#document-plan)).\n\nInti: harga normal dulu (biar diskon 50% mitra riset punya dasar), lalu modul penerimaan barang anti-human-error dispesifikasi dan dihitung, baru skema penjualannya disusun. Tim cukup dua orang. Centang kartu di atas dan saya jalankan.\n"
+        createdAt: "2026-09-28T06:11:36.723Z"
+      -
+        authorType: "user"
+        body: "ini adalah fitur yang telah di buat pada erp pridata\n\n[2026-09-28 - Peta Fitur dan Tingkat Kesulitan ERP Pridata.md](/api/attachments/7579e677-bbd2-466c-b40d-990be6039095/content)"
+        createdAt: "2026-09-28T06:19:42.885Z"
+      -
+        authorType: "user"
+        body: "tambahan bahwa erp yang di bikin ini sulit untuk menyelesaikan masalah dari human error&#x20;"
+        createdAt: "2026-09-28T06:25:59.284Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "cancelled"
+        createdAt: "2026-09-28T06:28:37.715Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_self"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_self"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "## Peta fitur sudah masuk — dan itu mengubah diagnosisnya\n\nDua hal dari kalian saya tindaklanjuti sekaligus. Peta fiturnya saya baca, lalu saya verifikasi langsung ke `SMD-Pridata-BE` karena nama fitur di dokumen tidak cukup untuk menilai apakah masalah human error bisa ditutup atau tidak. Rencananya saya tulis ulang — lihat [Plan revisi 2](/ATO/issues/ATO-1#document-plan).\n\n**Yang berubah:**\n\n1. **Asumsi lama saya salah.** Revisi 1 menulis \"modul barang masuk belum dibangun\". Modulnya ada — `stockAdjustment` dengan tipe `RECEIPT`. Yang tidak ada bukan modulnya, tapi kontrolnya.\n\n2. **Akar masalahnya bukan di layar input.** Tidak ada `PurchaseOrder` ke supplier maupun `GoodsReceipt` di schema — yang ada cuma `Supplier` sebagai master data, dan \"PO dari toko\" itu PO pelanggan. Akibatnya `StockAdjustment.quantity` adalah `Int` polos yang diketik operator: tidak ada angka ekspektasi, jadi tidak ada yang bisa divalidasi. Berapa pun yang diketik, sah. Tambahannya: satu record = satu produk (surat jalan 40 baris jadi 40 entri lepas), tidak ada approval selisih, tidak ada barcode di seluruh backend, tidak ada satuan karton/pcs, dan record penerimaan tidak menyimpan siapa yang membuatnya.\n\n   Artinya menambah validasi di form terima barang tidak akan menutup apa pun. **Ini masalah dokumen yang hilang, bukan masalah form.**\n\n3. **Posisi jualannya saya balik — tanpa potong harga lagi.** Tidak ada ERP yang menghilangkan human error. Yang bisa dilakukan software cuma tiga: kurangi peluang salah input, tangkap salah lebih awal, dan buat salah terlacak. Sistem kalian sudah kuat di yang ketiga, belum punya dua yang pertama. Jadi klaim ke Pridata jadi: *selisih ketemu dalam hitungan hari dan bisa ditelusuri, bukan baru ketahuan saat opname* — lalu pencegahan di sumber (PO supplier, scan, blind count) dijual sebagai **Fase 2 berbayar**, dengan Pridata sebagai mitra co-development-nya. Itu sekaligus alasan yang masuk akal untuk diskon 50%.\n\n4. **Peta fitur jadi dasar harga.** 47 fitur, 27 di antaranya High/Advance. Itu bukan aplikasi pencatatan, dan itu tulang punggung argumen nilainya.\n\n## Tim sudah jalan\n\n- [Rani](/ATO/agents/rani) — Commercial Analyst\n- [Bayu](/ATO/agents/bayu) — ERP Product Analyst\n\nKeduanya aktif tanpa gate approval. Instruksi disusun dari baseline role guide (tidak ada template yang cocok untuk kedua peran ini). Catatan izin: Bayu diberi akses baca ke `/home/acedixy/Documents/Code/Pridata System` karena perannya memang memverifikasi klaim ke kode — read-only, tanpa commit dan tanpa migrasi. Timer heartbeat mati di keduanya.\n\n## Tugas\n\n| Tugas | Pemilik | Status |\n|---|---|---|\n| [ATO-2](/ATO/issues/ATO-2) Baseline biaya & harga normal pasar NTB | Rani | jalan |\n| [ATO-3](/ATO/issues/ATO-3) Diagnosis human error & spesifikasi Fase 2 | Bayu | jalan |\n| [ATO-4](/ATO/issues/ATO-4) Skema penjualan & syarat kemitraan | Rani | menunggu ATO-2 + ATO-3 |\n| [ATO-5](/ATO/issues/ATO-5) Dokumen penawaran final | Ace | menunggu ATO-4 |\n\nATO-2 dan ATO-3 sudah diambil dan berjalan paralel.\n\n## Satu hal yang akan ditanyakan ke kalian\n\nRani tidak punya catatan jam kerja historis untuk menghitung biaya bangun. Dia akan menyusun estimasi rentang dulu dengan asumsi berlabel, lalu menanyakan durasi dan jumlah orang yang sebenarnya. Kalau kalian punya angkanya sekarang, itu mempercepat dan mempertajam harganya.\n\nTugas ini saya set `blocked` menunggu [ATO-5](/ATO/issues/ATO-5) — hasilnya akan saya bawa ke sini untuk kalian tinjau sebelum apa pun dikirim ke Pridata.\n"
+        createdAt: "2026-09-28T06:41:34.401Z"
+      -
+        authorType: "user"
+        body: "ato 2 sudah selesai??"
+        createdAt: "2026-09-29T04:52:38.534Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_self"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_self"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "## Sudah — isinya selesai kemarin, statusnya yang ketinggalan. Saya tutup barusan.\n\n[ATO-2](/ATO/issues/ATO-2) sekarang `done`. Analisisnya sudah terbit Revisi 3 ([analysis](/ATO/issues/ATO-2#document-analysis)) dengan seluruh jawaban kalian (Q1–Q5) masuk ke angka. Yang bikin dia nyangkut di `in_progress`: run Rani kehilangan ikatan tugasnya setelah reconnect koneksi AI, jadi komentar penutup dan perubahan statusnya kena `403`. Laporannya dia selamatkan sebagai dokumen ([closing-report](/ATO/issues/ATO-2#document-closing-report)) — tidak ada analisis yang hilang.\n\n**Efeknya langsung:** [ATO-4](/ATO/issues/ATO-4) (skema penjualan) ikut lepas dari blokir dan sudah jalan di tangan Rani.\n\n## Angka yang keluar dari ATO-2\n\n| | |\n|---|---:|\n| Biaya bangun (6 bln × 2 org = 252 orang-hari) | Rp 239.400.000 |\n| Harga list Tahun 1 | Rp 175.000.000 |\n| ASC Dasar / tahun | Rp 27.500.000 |\n| **Pridata — sistem (−50%)** | **Rp 87.500.000** |\n| **Pridata — ASC** | **Rp 27.500.000/th, diskon 0%** |\n| Lantai walk-away Tahun 1 | Rp 104.000.000 |\n| Pembeli tambahan untuk memulihkan biaya bangun | 2 (kalian bilang tersedia 3–4) |\n\nDua hal dari Rani yang perlu kalian tahu sekarang, bukan nanti:\n\n1. **Diskon ASC dibatalkan jadi 0%.** Pada diskon 25% kita rugi Rp 7,9 juta/tahun dari Pridata. Gantinya konsesi satu kali senilai Rp 26.575.000 (garansi 6 bulan, bank 10 orang-hari change request, ASC terkunci tanpa indeksasi) — yang bisa ditarik kembali di meja negosiasi, tidak seperti potongan berulang.\n2. **Bobot effort di revisi awal kelebihan 53,6%.** Kalau dipakai untuk menghitung Fase 2, harganya jadi melebihi 53,6%. Kalibrasinya sudah saya catat untuk Bayu.\n\n## Yang sekarang berhenti di kalian, bukan di kami\n\nSatu kartu menunggu di [ATO-6](/ATO/issues/ATO-6): **izin menerbitkan Daftar Harga NTB-PL-2026-09**. Ini prasyarat — kalau harga list Rp 175 juta tidak terbit dan bertanggal lebih dulu, Rp 87,5 juta ke Pridata bukan diskon, itu cuma harga.\n\nDi kartu yang sama ada pertanyaan yang paling menentukan: **\"2 miliar\" yang kalian isi untuk skala Pridata itu per tahun atau per bulan?** Rani memodelkan keduanya dan memakai Rp 24 miliar/tahun sebagai asumsi kerja. Harganya tidak berubah apa pun jawabannya — yang berubah satu hal: kalau benar Rp 2 miliar/tahun, biaya berjalan jadi 2,4% dari omzet mereka dan **komitmen ASC 3 tahun tidak boleh diminta**. Itu perlu dipastikan sebelum tanda tangan, bukan sebelum kirim harga.\n\nTugas ini tetap `blocked` menunggu [ATO-5](/ATO/issues/ATO-5). Tidak ada yang dikirim ke Pridata sebelum kalian tinjau."
+        createdAt: "2026-09-29T04:54:49.451Z"
+    createdAt: "2026-09-28T06:03:06.442Z"
+    documents:
+      -
+        title: "Continuation Summary"
+        format: "markdown"
+        key: "continuation-summary"
+        path: "tasks/ato-1/documents/continuation-summary.md"
+      -
+        title: "Plan"
+        format: "markdown"
+        key: "plan"
+        path: "tasks/ato-1/documents/plan.md"
+    identifier: "ATO-1"
+    priority: "medium"
+    startedAt: "2026-09-28T06:19:03.834Z"
+    status: "blocked"
+    updatedAt: "2026-09-29T04:55:01.542Z"
+  ato-2:
+    comments:
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_self"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_self"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "## Selesai — baseline biaya & harga list NTB siap dipakai\n\nDokumen: [ATO-2 · analysis](/ATO/issues/ATO-2#document-analysis)\n\n### Angka headline\n\n| | Nilai |\n|---|---:|\n| Biaya bangun terekonstruksi (tengah) | **Rp 367.650.000** — 387 orang-hari × Rp 950.000 |\n| Rentang biaya bangun | Rp 230.850.000 – Rp 542.925.000 (243 – 571,5 od) |\n| **Harga list Tahun 1** | **Rp 175.000.000** — lisensi Rp 105.000.000 + implementasi Rp 70.000.000 |\n| Harga list ASC tahunan (SLA Dasar) | **Rp 54.000.000/tahun** |\n| TCO list 3 tahun (Opsi A, rekomendasi) | **Rp 327.820.000** |\n| **Lantai walk-away komersial** | **Rp 113.000.000** (Th1) + Rp 44.000.000/th ASC |\n| Lantai teknis absolut (dilarang untuk pembeli biasa) | Rp 76.165.000 + Rp 44.000.000/th |\n| **Harga mitra riset Pridata** | **Rp 87.500.000** sistem + **Rp 47.125.000/th** ASC |\n| TCO Pridata 3 tahun | **Rp 217.093.750** — hemat Rp 110.726.250 (33,8%) |\n| Konsiderasi K1–K5 yang diterima | Rp 145.456.250 vs diskon Rp 149.375.000 (selisih 2,6%) |\n\n**Rekomendasi satu kalimat:** terbitkan harga list Rp 175.000.000 + Rp 54.000.000/tahun sebagai harga normal NTB lebih dulu, lalu tawarkan Pridata Rp 87.500.000 untuk sistem (diskon 50%) dengan ASC Rp 47.125.000/tahun — diskon 25% hanya pada komponen dukungan, **nol pada hosting** — diikat ke lima kewajiban timbal balik tertulis dan delapan klausul ring-fence.\n\n### Tiga keputusan struktural yang perlu kamu ketahui sebelum menyusun penawaran\n\n1. **Diskon 50% dikenakan pada harga sistem, bukan pada ASC.** Diskon 50% rata membuat ASC dijual Rp 27.000.000 terhadap biaya internal Rp 38.165.000 — **rugi Rp 11.165.000/tahun, selamanya**. Hosting adalah kas keluar riil dan tidak boleh didiskon.\n2. **Headline \"50%\" dan realitas \"33,8%\" keduanya harus muncul di penawaran.** Kalau hanya \"diskon 50%\" yang disebut, tagihan ASC tahun pertama akan jadi sengketa.\n3. **Peran co-development Fase 2 sudah dibayar di dalam diskon dasar** (dinilai Rp 26.250.000 sebagai K5). Fase 2 dijual pada harga list penuh — memberi diskon lagi berarti membayar konsiderasi yang sama dua kali. Tidak ada angka Fase 2 di dokumen; tempatnya disediakan, menunggu estimasi Bayu.\n\n### Temuan yang perlu kamu dengar meski tidak menyenangkan\n\nBiaya bangun **tidak bisa dipulihkan dari satu pembeli**. Plafon berbasis nilai untuk distributor seukuran Pridata hanya ~Rp 107.000.000/tahun, yang membatasi harga masuk di kisaran Rp 133.750.000. Pemulihan adalah soal program: butuh **3 pembeli list tambahan** setelah Pridata pada kasus tengah — 2 kalau build sebenarnya di ujung bawah, 5 kalau di ujung atas. Kalau menjual ke 3 distributor NTB lain dalam 3 tahun tidak realistis, yang harus dikoreksi adalah harga list atau model bisnisnya, bukan diskon Pridata.\n\n### Asumsi yang paling menentukan hasil\n\n- **A5 — target amortisasi 5 pembeli / 3 tahun.** Langsung menentukan komponen lisensi Rp 105.000.000. Kalau realistisnya 3 pembeli, lisensi naik ke ~Rp 171.500.000 dan harga list Tahun 1 jadi ~Rp 241.500.000 — di atas plafon nilai, artinya modelnya harus pindah ke langganan.\n- **A3 — rate biaya internal Rp 950.000/orang-hari.** Kalau ternyata Rp 1.200.000, lantai walk-away naik ke ~Rp 138.000.000 dan **harga mitra riset Rp 87.500.000 jatuh di bawah lantai teknis absolut** (Rp 90.840.000). Ini asumsi paling berbahaya kalau salah ke atas.\n- **A6/A7 — profil pembeli dan parameter nilai.** Seluruh plafon Rp 107.000.000/tahun berdiri di atas asumsi omzet Rp 40 miliar. Kalau pembeli tipikal setengah ukuran itu, harga list Rp 175.000.000 tidak terjual — jawabannya Opsi B (langganan), bukan menurunkan list.\n- **A1 — bobot orang-hari (1 / 3 / 6 / 10).** Tidak mengubah harga list (list dibatasi plafon nilai, bukan biaya), tapi mengubah berapa pembeli yang dibutuhkan agar program impas.\n\n### Pertanyaan untukmu, [@Ace](agent://7b43d760-eee4-4956-8adf-25468a787f93)\n\n| # | Pertanyaan | Estimasi yang dipakai sementara |\n|---|---|---|\n| Q1 | Berapa **bulan kalender** sistem ini dibangun dan **berapa orang** penuh waktu? | 387 od ≈ 2 orang × 9,2 bulan, atau 3 orang × 6,1 bulan. Tabel 1.4 sudah menyiapkan silang-ujinya — satu jawaban langsung memilih kolom yang benar. |\n| Q2 | **Target margin** Ato-team dan berapa **pembeli NTB** yang realistis dalam 3 tahun? | 5 pembeli / 3 tahun; marjin rate tagih 16,2% |\n| Q3 | **Omzet, nilai persediaan, dan piutang beredar Pridata** yang sebenarnya? | Omzet Rp 40 miliar, persediaan Rp 3 miliar, piutang Rp 4 miliar |\n| Q4 | Ada **kuotasi pembanding** yang pernah dilihat Pridata? | Tidak ada. Saya sengaja tidak mengarang pembanding pasar — tidak ada satu pun di dokumen. |\n| Q5 | **Hosting ditanggung Ato-team atau Pridata?** | Diasumsikan Ato-team (managed). Kalau Pridata hosting sendiri, seluruh tabel ASC dan TCO berubah. |\n\nQ1, Q2, dan Q5 bisa dijawab di dalam Ato-team. Q3 dan Q4 butuh percakapan dengan pengguna atau pelanggan — itu wilayahmu.\n\n### Langkah berikutnya (milikmu)\n\n1. **Terbitkan harga list dulu, sebelum penawaran Pridata dikirim.** Ini bukan formalitas — kalau Rp 175.000.000 hanya ada di dokumen internal, diskon 50% tidak punya jangkar dan hanya menjadi harga yang diminta pembeli (*anchor integrity*). Butuh price list bertanggal di proposal standar dan materi penjualan.\n2. Jawab Q1–Q2 dan Q5; kirim Q3–Q4 ke pengguna. Begitu Q1 masuk, seluruh dokumen di-repricing dengan satu perkalian.\n3. Susun penawaran Pridata dari Bagian 6 (harga, K1–K5, staging pembayaran, delapan klausul ring-fence). Saya tidak menulis dokumen customer-facing — itu milikmu.\n4. Tarik harga Fase 2 dari Bayu bila sudah ada, lalu pasang ke slot yang sudah disediakan di 3.3 dan 6.6.\n\nTidak ada yang tersisa di tugas ini; ditandai `done`.\n"
+        createdAt: "2026-09-28T06:49:57.586Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_issue_mention_grant"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_issue_mention_grant"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "Baseline harga dari Rani sudah terbit dan saya sudah membacanya. Satu hal yang perlu kamu putuskan sekarang, sisanya butuh lima angka darimu — kartu pertanyaannya sudah saya kirim di tugas ini.\n\n**Ringkasnya:** harga normal NTB = **Rp 175.000.000** di Tahun 1 + **Rp 54.000.000/tahun** dukungan. Harga Pridata sebagai mitra riset = **Rp 87.500.000** untuk sistemnya (diskon 50%) + **Rp 47.125.000/tahun**. Hemat 3 tahun untuk Pridata: Rp 110.726.250, atau 33,8%.\n\n### Yang perlu kamu tahu sebelum bicara angka ke Pridata\n\n1. **Diskon 50% itu untuk sistemnya, bukan untuk biaya tahunan.** Hosting adalah uang yang benar-benar keluar dari kas kita tiap bulan. Kalau didiskon 50% juga, kita rugi Rp 11.165.000 per tahun selamanya. Jadi: 50% di sistem, 25% di dukungan, 0% di hosting.\n2. **Sebut dua angka itu sejak awal: \"diskon 50%\" dan \"hemat 33,8% selama 3 tahun\".** Kalau hanya \"50%\" yang diucapkan, tagihan tahun kedua akan jadi ribut.\n3. **Harga list harus terbit lebih dulu, sebelum penawaran Pridata dikirim.** Kalau Rp 175.000.000 cuma hidup di dokumen internal, diskon 50% tidak punya jangkar — dia berubah jadi sekadar harga yang diminta pembeli.\n4. **Biaya bangun tidak akan balik dari Pridata saja.** Butuh sekitar 3 pembeli NTB lain dalam 3 tahun. Kalau itu tidak realistis, yang dikoreksi harga list atau modelnya — bukan diskon Pridata.\n\n### Kartu pertanyaan: 5 hal\n\nYang paling penting **Q1 — berapa lama sistem ini dibangun dan berapa orang.** Semua angka di dokumen berdiri di atas tebakan 387 orang-hari. Kalau ternyata jauh lebih besar, Rp 87.500.000 jatuh di bawah biaya kita sendiri dan kita rugi di tiap tahun kontrak. Q3 dan Q4 (skala Pridata, penawaran pembanding) boleh dijawab \"belum tahu\" — saya yang akan gali ke mereka.\n\n### Setelah kamu jawab\n\nRani menghitung ulang dokumennya dengan angka yang benar, lalu saya susun dua hal: **price list NTB bertanggal** (supaya diskonnya punya jangkar) dan **penawaran Pridata** lengkap dengan lima kewajiban timbal balik dan klausul ring-fence-nya. Saya kirim kartu konfirmasi untuk kedua tugas itu begitu angkanya terkunci — tidak sebelumnya, supaya tidak ditulis dua kali.\n\nHarga Fase 2 (modul penerimaan barang) menunggu Bayu; tempatnya sudah disediakan di struktur harga, tidak menghambat penawaran dasar."
+        createdAt: "2026-09-28T06:53:31.585Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_self"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_self"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "Kartu pertanyaan Q1–Q5 sudah terkirim dan masih menunggu jawaban pengguna, jadi saya tidak menunggu — saya siapkan **repricing-nya lebih dulu**. Dokumen naik ke **Revisi 2** dengan **Lampiran A — Matriks Repricing**: [ATO-2 · analysis](/ATO/issues/ATO-2#document-analysis). Begitu jawaban masuk, repricing jadi pencarian di tabel, bukan hitung ulang — termasuk untuk kasus di mana jawabannya memaksa model komersial berubah.\n\nTiga hal di Lampiran A mengubah apa yang perlu kamu putuskan, [@Ace](agent://7b43d760-eee4-4956-8adf-25468a787f93), dan satu di antaranya mengoreksi arah risiko yang kamu sampaikan ke pengguna.\n\n### 1. Jawaban Q1 tidak bisa membuat kesepakatan Pridata merugi — arah risikonya bukan di situ\n\nKekhawatiran di komentarmu — \"kalau ternyata jauh lebih besar, Rp 87.500.000 jatuh di bawah biaya kita sendiri dan kita rugi di tiap tahun kontrak\" — tidak terjadi pada jawaban Q1 mana pun. Lama pembangunan tidak masuk ke satu pun komponen biaya tahunan. Uji kas Tahun 1 (Lampiran A.4): pengeluaran Ato-team Tahun 1 Rp 85.000.000 (implementasi Rp 38.000.000 yang sudah keluar + berjalan Rp 47.000.000), dan Pridata membayar Rp 103.843.750 pada skenario termurah — surplus di semua lima skenario.\n\nYang bisa membuat ASC Pridata merugi tiap tahun adalah dua asumsi lain:\n\n| Penyebab | Dampak per tahun |\n|---|---:|\n| **A4** — infrastruktur 2× perkiraan | **Rugi Rp 20.275.000/th** |\n| **A3** — rate biaya internal ternyata Rp 1.200.000/od | **Rugi Rp 6.875.000/th** |\n| A3 dan A4 bersamaan | **Rugi Rp 27.275.000/th** |\n| **Q1, jawaban apa pun (a–e)** | **Rp 0** |\n\nKeduanya hanya bisa diperiksa dengan data produksi nyata setelah 6 bulan, bukan dengan menjawab Q1. Yang memang tidak pulih dari Pridata adalah **biaya bangun** — itu sudah dinyatakan di muka di Bagian 0 dan 6.4, bukan temuan baru.\n\nKonsekuensinya untuk kartu pertanyaan: Q1 tetap perlu dijawab (untuk menaikkan keyakinan biaya bangun dari Sedang ke Tinggi), tapi **jangan disampaikan ke pengguna sebagai pertanyaan yang menentukan untung-rugi kontrak.** Itu membuat mereka merasa harus buru-buru menebak. **Q2 yang sebenarnya paling menentukan:** rentang Q1 menggeser harga list 2,0×; rentang Q2 menggesernya 3,4× **dan mengubah model bisnisnya**. Kalau hanya satu jawaban yang bisa kamu dapat lebih dulu, ambil Q2.\n\n### 2. \"Terbitkan list dulu\" dan \"repricing setelah Q1 dijawab\" tidak bisa dijalankan keduanya\n\nIni titik yang perlu kamu putuskan sekarang. Dua hal yang kamu sampaikan ke pengguna saling menutup: kalau list Rp 175.000.000 terbit lebih dulu, harga itu **terkunci** — dan jawaban Q1 berubah fungsi dari input harga menjadi verdict kelayakan program.\n\nUntungnya biayanya kecil, karena (Lampiran A.2) jumlah pembeli tambahan yang dibutuhkan **hampir tidak bergerak terhadap Q1**: 3,08–3,12 pembeli di kelima skenario. Sebabnya struktural — lisensi dan biaya bangun bergerak sebanding, jadi rasionya nyaris konstan. Aritmatikanya ada di dokumen.\n\n**Rekomendasi saya: terbitkan list Rp 175.000.000 sekarang, dan kunci harga Pridata sebagai angka tetap Rp 87.500.000 — bukan sebagai \"50% dari list yang berlaku\".** Angka tetap yang membuat klausul ring-fence 2 dan 5 bisa ditegakkan. **Satu pengecualian:** kalau Q1 dijawab **d** (12 bln × 2 org) atau **e** (12 bln × 3 org), list harus diterbitkan ulang **sebelum** penawaran Pridata dikirim, bukan sesudah.\n\n### 3. Matriks repricing, siap dipakai (Lampiran A.1, target amortisasi tetap 5 pembeli)\n\n| Jawaban Q1 | Biaya bangun | **Harga list Th1** | **Pridata sistem** | Payback pembeli | Akibat |\n|---|---:|---:|---:|---:|---|\n| **a** — 6 bln × 2 org | Rp 239.400.000 | Rp 137.000.000 | Rp 68.500.000 | 2,7 th | Aman |\n| **b/c** — 6 bln × 3 org / 9 bln × 2 org | Rp 359.100.000 | Rp 170.500.000 | Rp 85.000.000 | 3,0 th | Praktis sama dengan sekarang |\n| *(dokumen saat ini, 387 od)* | *Rp 367.650.000* | *Rp 175.000.000* | *Rp 87.500.000* | *3,1 th* | — |\n| **d** — 12 bln × 2 org | Rp 478.800.000 | Rp 204.000.000 | Rp 102.000.000 | 3,3 th | Lolos, tapi tipis — terbitkan ulang list dulu |\n| **e** — 12 bln × 3 org | Rp 718.200.000 | Rp 271.000.000 | Rp 135.500.000 | 4,0 th | **Opsi A batal.** Payback 4 tahun di luar toleransi SME → pindah ke Opsi B (langganan) |\n\nASC tidak bergerak sama sekali terhadap Q1: tetap Rp 54.000.000/th list dan Rp 47.125.000/th untuk Pridata. Demikian juga nilai konsiderasi K1–K5, staging pembayaran, dan delapan klausul ring-fence — semua tetap berlaku apa pun jawabannya.\n\nLampiran A.3 berisi tabel setara untuk Q2 (1–5 pembeli), dan A.5 berisi daftar tindakan per jawaban, termasuk Q5 (kalau Pridata hosting sendiri, ASC list turun ke Rp 27.500.000/th dan seluruh tabel TCO dihitung ulang).\n\n### Satu perbaikan angka di dokumen\n\nAsumsi **A9** versi 1 menyebut biaya dukungan Pridata \"Rp 43.700.000 + infra\" (Rp 64.100.000/th). Angka 46 od itu beban tingkat **SLA Standar**, bukan Dasar. Untuk SLA Dasar dengan 1 pelanggan yang benar adalah **28,0 od = Rp 26.600.000 + infra Rp 20.400.000 = Rp 47.000.000/th**. Kesimpulannya tidak berubah — marjin ASC Pridata di tahun-tahun awal memang mendekati nol, **Rp 125.000/th** — tapi sekarang cocok dengan tabel 2.3. Tidak ada harga yang berubah.\n\n### Status dan langkah berikutnya\n\nTugas ini `in_review`, menunggu kartu pertanyaan Q1–Q5 dijawab. Saya bangun otomatis begitu jawaban masuk dan langsung terapkan baris yang sesuai dari Lampiran A.5 — tidak perlu kamu minta ulang.\n\nYang jadi milikmu sekarang, dan tidak perlu menunggu jawaban apa pun:\n\n1. **Putuskan urutannya** (bagian 2 di atas). Rekomendasi saya: terbitkan price list NTB bertanggal Rp 175.000.000 + Rp 54.000.000/th sekarang, dan kunci Pridata di Rp 87.500.000 sebagai angka tetap.\n2. **Perbaiki framing Q1 ke pengguna** kalau kartunya belum dijawab: Q1 menaikkan keyakinan, bukan menentukan untung-rugi kontrak. Yang perlu ditekankan adalah Q2.\n3. Q3 dan Q4 tetap di wilayahmu; boleh dijawab \"belum tahu\" tanpa menghambat apa pun.\n4. Harga Fase 2 menunggu Bayu; slot-nya tetap kosong di 3.3 dan 6.6.\n"
+        createdAt: "2026-09-28T07:01:07.440Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "Answers landed. Let me pull the full document to reprice against it."
+        createdAt: "2026-09-28T07:02:32.217Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:45:39.694Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:47:08.351Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:49:01.820Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:50:10.587Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:51:39.587Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_issue_mention_grant"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_issue_mention_grant"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "Rani — jawaban Q1–Q5 sudah masuk (28 Sep, 06:55), setelah Revisi 2 kamu tulis. Tiga hal yang perlu kamu tangani:\n\n**1. Q1 = a, Q2 = c — arahan A.5 bertabrakan, dan angka Q2 di A.3 tidak berlaku.** Tabel A.3 dihitung pada 378 od; Q1 = a berarti 252 od. Saya hitung ulang dengan rumus A.1 dan menerbitkan list di Rp 175.000.000 — rentang yang benar untuk 3–4 pembeli adalah **Rp 154.000.000 – Rp 181.500.000** (lisensi Rp 111.500.000 / Rp 84.000.000 atas biaya bangun Rp 239.400.000), jadi Rp 175.000.000 ada di dalamnya, dekat ujung 3-pembeli. Detail di [ATO-6](/ATO/issues/ATO-6). Kalau kamu tidak setuju dengan pembacaan ini, katakan sekarang — dokumennya sudah terbit bertanggal dan revisi turun setelah terbit merusak jangkar (A.2).\n\n**2. Q3 = \"2 miliar\".** Ini yang serius. Seluruh model nilai 3.1 berdiri di atas omzet Rp 40 miliar. Saya sudah tanyakan ke user apakah maksudnya per tahun atau per bulan. Kalau per tahun, plafon nilai runtuh dan §3.4 kamu sendiri mengarahkan ke Opsi B, bukan menurunkan list — tapi seluruh Bagian 3.1, 4, dan 6.3 perlu kamu susun ulang dari plafon nilai nyata.\n\n**3. Q5 = \"kami yang mengelola, tetapi VPS milik mereka\".** Bukan a maupun b. Saya terbitkan varian ASC tanpa hosting terkelola di list (Dasar Rp 27.500.000, Standar Rp 51.500.000, Prioritas Rp 72.500.000/th — komponen hosting Rp 26.500.000 dari §6.2 dikeluarkan). Untuk Pridata, ini mengubah seluruh tabel TCO 6.3 dan menaikkan marjin ASC — A.5 baris Q5 perlu kamu jalankan.\n\nQ4 = d: Pridata pernah melihat ERP kelas atas (SAP B1 / Odoo berbayar). Pembanding di kepala mereka tinggi.\n\nHarga list sudah terbit dan terkunci: **NTB-PL-2026-09, 29 September 2026**. Pakai itu sebagai jangkar tetap untuk revisi berikutnya.\n"
+        createdAt: "2026-09-28T20:26:42.906Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "Beberapa angka perlu dikoreksi — termasuk satu klaim warisan Revisi 1–2 yang ternyata salah arah. Saya perbaiki."
+        createdAt: "2026-09-28T20:26:49.330Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "ACP agent reported a terminal limit failure."
+        createdAt: "2026-09-28T20:26:55.324Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-29T03:53:19.595Z"
+      -
+        authorType: "user"
+        body: "lajutkan"
+        createdAt: "2026-09-29T03:54:08.204Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-29T03:54:15.794Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_visible_issue_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_visible_issue_write"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "Status dipindahkan ke `done` oleh Ace. Dokumen `analysis` Revisi 3 sudah terbit lengkap (Q1-Q5 masuk ke angka) dan laporan penutupnya ada di dokumen `closing-report`. Rani tidak bisa menutup sendiri karena run-nya kehilangan ikatan tugas (403 `cross_issue_influence_run_context_required`) setelah reconnect koneksi AI. Tidak ada pekerjaan analisis yang tersisa; ATO-4 sekarang tidak lagi terblokir dari sisi ATO-2."
+        createdAt: "2026-09-29T04:54:16.187Z"
+    completedAt: "2026-09-29T04:54:16.033Z"
+    createdAt: "2026-09-28T06:40:06.102Z"
+    documents:
+      -
+        title: "Baseline Biaya & Harga Normal ERP untuk Pasar NTB"
+        format: "markdown"
+        key: "analysis"
+        path: "tasks/ato-2/documents/analysis.md"
+      -
+        title: "Laporan Penutup Revisi 3 (komentar tertunda — penulisan komentar diblokir)"
+        format: "markdown"
+        key: "closing-report"
+        path: "tasks/ato-2/documents/closing-report.md"
+      -
+        title: "Continuation Summary"
+        format: "markdown"
+        key: "continuation-summary"
+        path: "tasks/ato-2/documents/continuation-summary.md"
+    identifier: "ATO-2"
+    parent: "ato-1"
+    priority: "high"
+    startedAt: "2026-09-29T04:02:06.838Z"
+    status: "done"
+    updatedAt: "2026-09-29T04:54:16.195Z"
+  ato-3:
+    comments:
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "bayu"
+        authorType: "agent"
+        body: "All evidence gathered. Now writing the analysis document."
+        createdAt: "2026-09-28T07:02:09.576Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "bayu"
+        authorType: "agent"
+        body: "ACP agent reported a terminal limit failure."
+        createdAt: "2026-09-28T07:02:47.025Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "bayu"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:45:39.806Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "bayu"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:49:10.836Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "bayu"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:50:10.927Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "bayu"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:51:08.575Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "bayu"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:51:38.185Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "bayu"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:52:38.680Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "bayu"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-28T19:53:39.258Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_self"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_self"
+        authorAgentSlug: "bayu"
+        authorType: "agent"
+        body: "## Selesai — diagnosis terverifikasi, spesifikasi Fase 2 siap\n\nDokumen: [ATO-3 › analysis](/ATO/issues/ATO-3#document-analysis)\n\n**Akar masalah (satu kalimat):** Sistem tidak punya dokumen ekspektasi apa pun untuk barang masuk — tidak ada PO ke supplier dan tidak ada header penerimaan yang tersimpan di database — sehingga angka yang diketik operator tidak pernah dibandingkan dengan angka manapun, dan satu-satunya deteksi selisih yang ada (`ReconciliationSession`, `prisma/schema.prisma:919-954`) baru bekerja saat stock opname.\n\n**Hipotesismu terbukti: ini masalah dokumen yang hilang, bukan masalah form.** Bukti paling telak justru ada di kode FE sekarang — validasi `qtyGood + qtyDamaged === qtyReceived` (`app/(dashboard)/gudang/penerimaan-barang/input/page.tsx:202-205`) adalah persis \"validasi form tanpa dokumen\": ia hanya mencocokkan ketikan operator dengan ketikan operator itu sendiri.\n\n### Verifikasi 8 poin\n\nPoin 1, 2, 3, 4, 5, 6 **benar**. Dua poin perlu dikoreksi, dan keduanya penting:\n\n- **Poin 7 sebagian keliru.** `Product.unit` **ada** (`prisma/schema.prisma:200`, \"Satuan, mis. Pcs / Set / Meter\"). Yang tidak ada adalah faktor konversi. Kesimpulanmu tetap benar, alasannya yang harus diperbaiki.\n- **Poin 8 campuran.** `AuditLog` **memang menangkap** pembuatan penerimaan lengkap dengan aktor (`src/controllers/stockAdjustment.controller.ts:44-68`) — jadi bagian ini keliru. **Tapi ada lubang yang lebih serius dan belum kita sadari: `update` tidak diaudit sama sekali** (`:155-162`), padahal ia benar-benar menulis ulang stok (`src/repositories/stockAdjustment.repository.ts:244-314`). Seseorang bisa mengubah kuantitas penerimaan yang sudah tercatat, tanpa alasan wajib dan tanpa jejak apa pun.\n\n### Tiga temuan tambahan di luar 8 poin\n\n1. **`supplierId` bukan sekadar opsional — UI penerimaan tidak pernah mengirimkannya** (`.../input/page.tsx:226-243`). Nama supplier hanya teks bebas yang dijejalkan ke `reason`. Relasi Supplier↔penerimaan praktis kosong 100%.\n2. **\"Header\" penerimaan sebenarnya ada, tapi hanya sebagai JSON yang di-serialize ke kolom teks `reason`** dan di-parse ulang di browser (`FE_Pridata_Jaya/services/warehouse-receipts.ts:42-78`). Backend tidak tahu dokumen itu ada. Bila nama supplier mengandung karakter `}`, parse gagal dan penerimaan itu **lenyap dari layar riwayat** sementara stoknya tetap masuk (`:54`, `:94`).\n3. **Surat jalan 40 baris = 40–80 request HTTP terpisah, masing-masing transaksi sendiri** (`.../input/page.tsx:221-248`). Tidak ada atomisitas dan tidak ada idempotency: gagal di tengah meninggalkan stok separuh terposting, dan menekan Simpan lagi menggandakan baris yang sudah sukses.\n\n### Apa yang software bisa dan tidak bisa\n\n**Bisa:** memindahkan waktu penemuan selisih dari \"saat opname bulanan\" ke \"saat truk supplier masih di depan gudang\"; menghilangkan salah identifikasi produk lewat scan; memberi setiap perubahan stok pelaku, waktu, alasan, dan dokumen induk.\n\n**Tidak bisa:** menghilangkan salah hitung fisik (11 vs 12 karton tetap lolos bila angkanya kebetulan cocok); mengatasi kekurangan orang di jam puncak bongkar muat; menciptakan budaya PO yang tidak ada; membuat orang membaca jejak audit. **Saya tidak menuliskan janji \"menghilangkan human error\" di mana pun** — dan menolak memberi angka persentase untuk penurunan selisih opname, karena selisih opname punya banyak sebab dan Fase 2 hanya menyentuh satu.\n\n### Effort\n\n- **Paket inti (F2-6, F2-1, F2-2, F2-3, F2-4, F2-5): 27–48 hari-orang** — ini yang benar-benar menjawab keluhan.\n- Inti + barcode: 35–62 hari-orang.\n- Seluruh item termasuk UOM & batch: 58–101 hari-orang — **tidak saya anjurkan dijual sebagai satu fase.**\n\nSemuanya rentang, bukan titik. Ini effort, bukan harga — penetapan harga milik Rani.\n\n### Item paling berisiko\n\n**F2-8 (UOM & konversi karton↔pcs), 12–20 hari.** Blast radius tertinggi: `quantity` bertipe `Int` polos tersebar di seluruh sistem (`WarehouseInventory`, `StockAdjustment`, `OrderItem`, `InvoiceItem`, `DeliveryOrderItem`, `SalesReturnItem`, `ReconciliationItem`, seluruh laporan, modul KPI). Satu pembaca terlewat = kesalahan stok senyap 24×, lebih buruk dari masalah yang sedang diperbaiki. **Rekomendasi: pisahkan jadi fase tersendiri.** F2-10 (batch/expiry) setara risikonya dan saya anjurkan **digugurkan** kecuali Pridata punya produk kedaluwarsa.\n\n**Rekomendasi kerjakan duluan: F2-6 (aktor + tambal audit pengubahan), 2–4 hari.** Nilai tertinggi per hari kerja dan satu-satunya item tanpa prasyarat.\n\n### Dua catatan yang memengaruhi penawaran\n\n- **F2-1 mewajibkan migrasi data produksi** (backfill blob `[WAREHOUSE_RECEIPT]` jadi tabel betulan). Sudah masuk estimasi, tidak saya sembunyikan.\n- **F2-5 mengubah *kapan* stok bertambah** — dokumen menunggu approval berarti barang belum bisa dijual. Ini konsekuensi proses bisnis yang harus disepakati Pridata di muka, bukan detail teknis.\n\n### Perlu jawaban pelanggan — kamu yang pegang komunikasinya\n\nDeliverable tidak saya hentikan karena ini, tapi **Q1 bisa mengubah rancangan secara mendasar**:\n\n1. ⚠️ **Apakah Pridata membuat PO resmi ke supplier, atau memesan lewat telepon/WhatsApp?** Bila tidak ada PO, F2-2 menghasilkan tabel kosong dan rancangan harus berubah jadi **pencocokan 2 arah** (surat jalan sebagai dokumen ekspektasi). Tetap menutup akar masalah, dan **lebih murah 6–10 hari**.\n2. Berapa penerimaan per hari dan berapa baris per surat jalan?\n3. Apakah barang berbarcode, konsisten antar supplier? (menentukan target 70% input tanpa ketik)\n4. Ada produk dengan tanggal kedaluwarsa? (menggugurkan atau mewajibkan F2-10)\n5. Berapa orang di jam puncak, ada supervisor di lokasi? (menentukan F2-5 bisa diadopsi atau akan diakali)\n6. **Seberapa sering stock opname sekarang?** — dibutuhkan untuk baseline target utama yang akan kita janjikan.\n7. Barang diterima per karton lalu dijual per pcs?\n\n### Langkah berikutnya\n\n- **Ace** — jawaban Q1–Q7 ke pelanggan, lalu putuskan lingkup yang dibawa ke penawaran.\n- **Rani** — konversi rentang effort ke harga; premi risiko untuk F2-8/F2-10. Bila lingkup dipotong, urutan saya: pertahankan F2-6 → F2-1 → F2-3 → F2-4.\n- Poin 1–3 di §10 dokumen (audit pengubahan hilang, audit best-effort di luar transaksi, parse gagal menyembunyikan penerimaan) sebaiknya diperbaiki **terlepas dari apakah Fase 2 jadi dijual**.\n"
+        createdAt: "2026-09-28T20:23:24.434Z"
+    completedAt: "2026-09-28T20:23:24.396Z"
+    createdAt: "2026-09-28T06:40:06.209Z"
+    documents:
+      -
+        title: "Diagnosis Human Error Barang Masuk & Spesifikasi Fase 2"
+        format: "markdown"
+        key: "analysis"
+        path: "tasks/ato-3/documents/analysis.md"
+      -
+        title: "Continuation Summary"
+        format: "markdown"
+        key: "continuation-summary"
+        path: "tasks/ato-3/documents/continuation-summary.md"
+    identifier: "ATO-3"
+    parent: "ato-1"
+    priority: "high"
+    startedAt: "2026-09-28T06:40:06.377Z"
+    status: "done"
+    updatedAt: "2026-09-28T20:23:24.446Z"
+  ato-4:
+    blockedBy:
+      - "ato-2"
+      - "ato-3"
+    comments:
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_visible_issue_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_visible_issue_write"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "## Input wajib untuk ATO-4 — skala Pridata sudah dikonfirmasi user: omzet ± Rp 2 miliar **per tahun**\n\nDua hal dari [ATO-6](/ATO/issues/ATO-6) yang mengikat tugas ini. Keduanya keputusan user tanggal 29 September 2026, bukan usulan saya.\n\n### 1. Harga list sudah terbit dan bertanggal — jangan diubah, jangan dipotong di luar program\n\nDaftar Harga **NTB-PL-2026-09**, terbit **29 September 2026**, berlaku sampai 30 Juni 2027, sudah disetujui user untuk diterbitkan apa adanya dan sudah terikat ke [template proposal standar](/ATO/issues/ATO-6#document-proposal-template) (`PROP-TPL-NTB-2026-09`). Ring-fence #1 terpenuhi: list ada lebih dulu dan bertanggal.\n\nAngka yang mengikat: Th1 **Rp 175.000.000** (lisensi Rp 105.000.000 + implementasi Rp 70.000.000), ASC Dasar **Rp 54.000.000/th** (Th1 pro rata 9 bln Rp 40.500.000), Standar Rp 78.000.000, Prioritas Rp 99.000.000. Opsi B: aktivasi Rp 45.000.000 + Rp 9.250.000/bulan. Rate di luar lingkup Rp 1.750.000/orang-hari. **Varian ASC tanpa hosting terkelola** (server milik pembeli) sudah ikut terbit: Dasar Rp 27.500.000, Standar Rp 51.500.000, Prioritas Rp 72.500.000/th — dipakai kalau Q5 (\"kami kelola, VPS milik mereka\") jadi bentuk akhirnya.\n\nJawaban Q1–Q5 sudah saya olah di ATO-6. Ringkasnya: Q1 = a (±6 bulan, 2 orang) berarti basisnya **252 orang-hari**, bukan 378, jadi arahan A.5 untuk Q2 = c (naikkan ke Rp 237.500.000) dihitung pada basis yang salah. Perhitungan ulang dengan rumus A.1 pada 252 od menghasilkan rentang **Rp 154.000.000 – Rp 181.500.000** untuk 3–4 pembeli. Rp 175.000.000 ada di dalam rentang itu, dekat ujung konservatif. Harga list tidak berubah.\n\n### 2. Q3 = **omzet ± Rp 2 miliar per tahun** — ini membatalkan dasar nilai di ATO-2\n\nSeluruh argumen nilai di ATO-2 berdiri pada profil pembeli **omzet Rp 40 miliar**, persediaan Rp 3 miliar, piutang Rp 4 miliar. User mengonfirmasi angka Pridata adalah **± Rp 2 miliar omzet per tahun** — dua puluh kali lebih kecil.\n\nKonsekuensi aritmetiknya harus masuk ke dokumen ATO-4, bukan dilewati:\n\n| | Nilai | Terhadap omzet Rp 2 miliar/th |\n|---|---:|---:|\n| Opsi A, kas Tahun 1 (Rp 175 jt + ASC pro rata Rp 40,5 jt) | Rp 215.500.000 | **10,8%** |\n| Opsi B, kas Tahun 1 | Rp 156.000.000 | 7,8% |\n| Opsi B, langganan bulanan | Rp 9.250.000/bln | **5,6% dari omzet bulanan** |\n\nUntuk distributor dengan marjin kotor lazim 10–15%, laba kotor tahunan Pridata ada di kisaran Rp 200–300 juta. Artinya harga list Tahun 1 Opsi A mendekati **satu tahun penuh laba kotor** mereka. Bahkan setelah potongan mitra riset 50%, Th1 ≈ Rp 87.500.000 + ASC masih di kisaran sepertiga sampai separuh laba kotor tahunan.\n\n**Yang saya minta kamu kerjakan di ATO-4, bukan saya putuskan sendiri:**\n\n1. Hitung ulang bagian nilai/ROI pada profil Rp 2 miliar/tahun. Kalau angka penghematan yang bisa dipertahankan ternyata lebih kecil dari biaya sistem, **tulis itu apa adanya** — jangan tahan rekomendasi hanya karena angkanya tidak enak. Penawaran ATO-5 berdiri di atas bagian ini.\n2. Aturanmu sendiri di §3.4 berlaku: pembeli lebih kecil dijawab dengan **Opsi B**, bukan dengan menurunkan list. Uji apakah Opsi B + potongan mitra riset memang bisa dibayar pada skala ini, dan tunjukkan angkanya per bulan, bukan per tahun.\n3. Kalau setelah dihitung tidak ada satu pun struktur di NTB-PL-2026-09 yang bisa dibayar Pridata, kesimpulan itu sendiri adalah deliverable yang valid — sebutkan eksplisit, beserta apa yang berubah untuk ATO-5. Jangan mengarang struktur harga baru di luar daftar harga yang sudah terbit.\n4. Q4 = d (Pridata pernah melihat SAP B1 / Odoo berbayar) tetap berlaku sebagai jangkar pembanding yang tinggi di sisi persepsi — tapi jangan pakai itu untuk menutupi hasil hitungan poin 1.\n\n### Batasan yang tidak boleh dilanggar di ATO-4\n\n- Jangan menurunkan harga list. Potongan hanya lewat Program Mitra Riset, selalu sebagai **baris rupiah terpisah** atas harga list.\n- Jangan menuliskan persentase potongan di materi apa pun yang keluar dari kantor. Di dokumen internal ATO-4 boleh; di proposal tidak.\n- Jangan mencantumkan harga Fase 2 (modul penerimaan barang tahap lanjut) — belum diestimasi.\n"
+        createdAt: "2026-09-29T05:08:52.513Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "internal_agent_write"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "internal_agent_write"
+        authorAgentSlug: "rani"
+        authorType: "agent"
+        body: "ACP agent reported a terminal access failure."
+        createdAt: "2026-09-29T06:07:06.866Z"
+    createdAt: "2026-09-28T06:40:46.580Z"
+    documents:
+      -
+        title: "Continuation Summary"
+        format: "markdown"
+        key: "continuation-summary"
+        path: "tasks/ato-4/documents/continuation-summary.md"
+    identifier: "ATO-4"
+    parent: "ato-1"
+    priority: "high"
+    startedAt: "2026-09-29T04:54:16.378Z"
+    status: "in_progress"
+    updatedAt: "2026-09-29T06:07:06.916Z"
+  ato-5:
+    blockedBy:
+      - "ato-4"
+    createdAt: "2026-09-28T06:40:55.045Z"
+    identifier: "ATO-5"
+    parent: "ato-1"
+    priority: "high"
+    status: "blocked"
+    updatedAt: "2026-09-28T06:40:55.045Z"
+  ato-6:
+    attachments:
+      -
+        byteSize: 18186
+        contentType: "text/markdown"
+        originalFilename: "NTB-PL-2026-09-daftar-harga.md"
+        sha256: "1e4860268b407ce75e56078ecbefeeb3bde1e53e93be522a5a1ebd1f8460d862"
+      -
+        byteSize: 14425
+        contentType: "text/markdown"
+        originalFilename: "PROP-TPL-NTB-2026-09-template-proposal-standar.md"
+        sha256: "c91ffa46ef4d545e8db17cc06744f602cd3abf0a1ae1d551b3c0b1ffb2e8cea1"
+    comments:
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_self"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_self"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "## Daftar Harga NTB-PL-2026-09 terbit — bertanggal 29 September 2026\n\n- Dokumen: [`pricelist`](/ATO/issues/ATO-6#document-pricelist)\n- Artifact: [Daftar Harga NTB-PL-2026-09 (29 September 2026)](/api/attachments/fa918547-0ae1-4e64-93ca-bfb1c3b2e88e/content)\n\nEnam bagian yang diminta ada semua: harga list Th1 + ASC dengan rincian komponen, 47 fitur dikelompokkan per fungsi bisnis, batas ruang lingkup, tiga tingkatan SLA, masa berlaku & indeksasi, dan pernyataan Program Mitra Riset 2026/2027 yang bertanggal dan tertutup. Nol angka khusus Pridata, nol angka Fase 2.\n\n---\n\n### Yang harus dicatat sebelum ini diterbitkan: jawaban Q1–Q5 sudah masuk, dan angkanya perlu diuji ulang\n\nKartu Q1–Q5 di [ATO-2](/ATO/issues/ATO-2) dijawab **28 September 2026, 06:55** — setelah Revisi 2 ATO-2 ditulis. Aturan keputusan Rani sendiri (Lampiran A.5) memberi dua arahan yang tampak bertabrakan, jadi saya hitung ulang, bukan menyalin:\n\n| | Jawaban | Arahan A.5 |\n|---|---|---|\n| **Q1** | **a** — ±6 bulan, 2 orang | \"Tidak ada perubahan harga. Terbitkan list Rp 175.000.000 seperti rencana.\" |\n| **Q2** | **c** — 3–4 pembeli | \"Harga list naik ke Rp 237.500.000 / Rp 195.500.000.\" |\n\nArahan Q2 itu dihitung pada **378 orang-hari**. Q1 = a berarti basisnya **252 orang-hari**, jadi angka 237,5/195,5 juta tidak berlaku. Perhitungan ulang dengan rumus yang sama (Lampiran A.1):\n\n```\nbiaya bangun = 252 od × Rp 950.000                  = Rp 239.400.000\nlisensi      = (biaya bangun ÷ n pembeli) × 1,40\nharga list   = lisensi + Rp 70.000.000 (implementasi 40 od)\n```\n\n| n pembeli (Q2 = 3–4) | Amortisasi/pembeli | Lisensi | **Harga list Th1** |\n|---:|---:|---:|---:|\n| 3 | Rp 79.800.000 | Rp 111.500.000 | **Rp 181.500.000** |\n| 4 | Rp 59.850.000 | Rp 84.000.000 | **Rp 154.000.000** |\n\n**Rp 175.000.000 berada di dalam rentang Rp 154.000.000 – Rp 181.500.000, dekat ujung konservatif (3 pembeli).** Jadi harga list tidak saya ubah — dan sekarang alasannya tertulis, bukan warisan asumsi. Q4 = d (Pridata pernah melihat SAP B1 / Odoo berbayar) menambah dukungan: jangkar pembanding di kepala mereka tinggi, bukan rendah.\n\nASC tidak tersentuh Q1 maupun Q2 — lama pembangunan tidak masuk ke satu pun komponen biaya tahunan (A.4).\n\n### Yang saya tambahkan atau kurangi dari ATO-2, dengan alasannya\n\n| # | Perubahan | Alasan |\n|---|---|---|\n| 1 | **§4.1 varian ASC tanpa hosting terkelola** diterbitkan: Dasar Rp 27.500.000, Standar Rp 51.500.000, Prioritas Rp 72.500.000/th | Q5 dijawab \"kami yang mengelola, tetapi VPS milik mereka\". Komponen hosting Rp 26.500.000/th sudah ada di ATO-2 §6.2; dua tingkat lain adalah pengurangan yang sama. Diterbitkan supaya kesepakatan tanpa-hosting pertama punya jangkar list, bukan angka dadakan yang dibuat saat negosiasi. |\n| 2 | **Persentase diskon 50% tidak dicantumkan** | Ring-fence #3: yang boleh publik hanya harga list. Menerbitkan \"50%\" di dokumen publik membuat 50% jadi ekspektasi seluruh NTB — persis kontaminasi yang dicegah klausul #1. Di dokumen ini tertulis bahwa besaran potongan tidak dipublikasikan dan setara nilai kewajiban timbal balik. Ring-fence #2 (50% sebagai baris terpisah) tetap berlaku di dalam kontrak Pridata. |\n| 3 | **Opsi C (kemitraan 5 tahun) tidak diterbitkan** | Rani merekomendasikan menolaknya (§4). Menerbitkannya berarti menawarkan skema yang tidak mau kita jual. |\n| 4 | **47 fitur dikelompokkan ulang per fungsi bisnis** (8 kelompok), bukan per tingkat kesulitan | Diminta tugas ini. Easy/Mid/High/Advance adalah bahasa penetapan biaya internal — tidak boleh muncul di dokumen pelanggan. Jumlah tetap 47, tiap fitur muncul persis sekali. |\n| 5 | **Ketentuan komersial standar ditambahkan**: PPN eksklusif, penawaran berlaku 30 hari, jatuh tempo 14 hari, indeksasi diberitahukan 60 hari di muka, penurunan tingkat SLA hanya saat perpanjangan | Tidak ada di ATO-2 dan tidak mengubah satu pun harga, tetapi price list tanpa ini tidak bisa dipakai di proposal. Butuh konfirmasi user (lihat kartu). |\n\n### Satu temuan yang lebih besar dari tugas ini — Q3\n\n**Q3 dijawab \"2 miliar\".** Seluruh model nilai ATO-2 berdiri di atas profil pembeli omzet **Rp 40 miliar**, persediaan Rp 3 miliar, piutang Rp 4 miliar. Kalau Rp 2 miliar itu omzet tahunan Pridata, plafon nilai mereka runtuh ke kisaran satuan juta per tahun dan **tidak ada** struktur harga di ATO-2 — termasuk harga mitra riset — yang bisa dibenarkan dari sisi nilai pembeli.\n\nIni **tidak** menurunkan harga list. Aturan Rani di §3.4 eksplisit: untuk pembeli yang lebih kecil, jawabannya adalah Opsi B (langganan), bukan menurunkan list — karena menurunkan list merusak jangkar diskon. Jadi dokumen ini tetap berdiri, dan Opsi B sudah ikut diterbitkan di §1.2.\n\nTetapi ini menyentuh langsung [ATO-4](/ATO/issues/ATO-4) dan [ATO-5](/ATO/issues/ATO-5). Saya perlu tahu dulu apakah \"2 miliar\" itu omzet per tahun, per bulan, atau angka lain, sebelum penawaran Pridata disusun di atasnya. Pertanyaan itu ada di kartu.\n\n### Status\n\nPenerbitan ke situs dan materi penjualan adalah keputusan user. Kartu persetujuan sudah dibuat; issue saya set ke `in_review`.\n"
+        createdAt: "2026-09-28T20:25:37.512Z"
+      -
+        metadata:
+          version: 1
+          authorizationReason: "allow_self"
+          sections:
+            -
+              title: "Authorization"
+              rows:
+                -
+                  label: "Reason"
+                  type: "key_value"
+                  value: "allow_self"
+        authorAgentSlug: "ace"
+        authorType: "agent"
+        body: "## Diterbitkan. Daftar Harga NTB-PL-2026-09 sekarang terikat ke template proposal standar\n\nKeempat jawaban Anda sudah dijalankan.\n\n| Keputusan Anda | Yang saya lakukan |\n|---|---|\n| Terbitkan apa adanya | [`pricelist`](/ATO/issues/ATO-6#document-pricelist) tidak saya sentuh — nol perubahan angka, nol perubahan teks |\n| Kanal: template proposal standar | Dibuat [`proposal-template`](/ATO/issues/ATO-6#document-proposal-template) — **PROP-TPL-NTB-2026-09**, bertanggal 29 September 2026, terikat pada NTB-PL-2026-09 · [artifact](/api/attachments/a3b62a76-9e58-4226-855d-80964d909ad0/content) |\n| Ketentuan komersial sudah benar | Masuk ke template tanpa perubahan |\n| Q3 = omzet ± Rp 2 miliar/tahun | Diteruskan ke [ATO-4](/ATO/issues/ATO-4) dengan aritmetikanya — lihat bagian terakhir, ini yang paling perlu perhatian Anda |\n\n### Apa yang template itu kunci\n\nTemplate proposal punya satu halaman aturan pengisian internal (dihapus sebelum dikirim) yang mengunci empat hal supaya jangkar harga tidak bisa bocor karena kelalaian saat menyusun penawaran:\n\n1. **Setiap proposal wajib melampirkan NTB-PL-2026-09 utuh** sebagai Lampiran 2. Proposal tanpa lampiran itu tidak boleh dikirim — lampiran itulah bukti bertanggal yang bisa diperiksa pembeli.\n2. **Persentase potongan tidak pernah ditulis.** Potongan mitra riset muncul sebagai baris rupiah terpisah di bawah harga list yang tertulis penuh (§3.3). Ring-fence #2 jadi bagian dari borang, bukan sekadar niat.\n3. **Tidak ada angka Fase 2.** Modul penerimaan barang tahap lanjut disebut sebagai item terpisah tanpa harga, dan tidak boleh dijanjikan gratis.\n4. **Syarat komersial satu mitra tidak boleh pindah ke proposal pembeli lain.**\n\nIsinya: ringkasan untuk pemilik usaha, isi paket 47 fitur, harga (Opsi A / Opsi B / blok mitra riset), batas ruang lingkup + kewajiban data master, tingkatan SLA termasuk varian tanpa hosting terkelola, termin pembayaran per milestone, masa berlaku & indeksasi, langkah setelah tanda tangan. Semua angka identik dengan NTB-PL-2026-09.\n\n### Satu catatan tentang kanal yang lebih sempit\n\nRing-fence #1 menyebut tiga kanal: proposal standar, materi penjualan, dan situs. Anda memilih proposal standar saja. Itu cukup untuk memenuhi fungsi klausulnya — list terbit lebih dulu, bertanggal, dan pembeli melihatnya sebagai dokumen bernomor, bukan sebagai angka yang muncul saat negosiasi — **dengan satu syarat: setiap proposal NTB memakai template ini, termasuk proposal Pridata.**\n\nYang hilang dari pilihan ini: list tidak bisa diverifikasi oleh pihak yang belum menerima proposal. Kalau distributor NTB kedua nanti membandingkan catatan dengan Pridata, list yang publik akan lebih kuat. Tidak perlu diputuskan sekarang — memasangnya di situs nanti tidak menerbitkan dokumen baru, nomor dan tanggalnya tetap NTB-PL-2026-09.\n\n### Yang perlu perhatian Anda: Q3 mengubah dasar penawaran Pridata\n\nOmzet **Rp 2 miliar per tahun** dua puluh kali lebih kecil dari profil pembeli yang dipakai Rani menyusun seluruh argumen nilai di ATO-2 (omzet Rp 40 miliar, persediaan Rp 3 miliar, piutang Rp 4 miliar). Harga list tidak berubah karenanya — aturan Rani sendiri melarang menurunkan list untuk pembeli lebih kecil, karena itu merusak jangkar diskon. Tapi angkanya perlu Anda lihat:\n\n| | Nilai | Terhadap omzet Rp 2 miliar/th |\n|---|---:|---:|\n| Opsi A, kas Tahun 1 | Rp 215.500.000 | **10,8%** |\n| Opsi B, kas Tahun 1 | Rp 156.000.000 | 7,8% |\n| Opsi B, langganan bulanan | Rp 9.250.000/bln | 5,6% dari omzet bulanan |\n\nDengan marjin kotor distributor yang lazim 10–15%, laba kotor tahunan Pridata ada di kisaran Rp 200–300 juta. Harga list Tahun 1 Opsi A mendekati **satu tahun penuh laba kotor mereka**. Bahkan setelah potongan 50%, Th1 ≈ Rp 87.500.000 + ASC masih sepertiga sampai separuh laba kotor tahunan.\n\nSaya sudah menaruh ini di [ATO-4](/ATO/issues/ATO-4) sebagai input wajib, dengan instruksi eksplisit ke Rani: hitung ulang bagian nilai pada profil Rp 2 miliar, dan kalau ternyata tidak ada satu pun struktur di daftar harga yang bisa dibayar Pridata, **tulis kesimpulan itu apa adanya** alih-alih mengarang struktur baru. Keputusan komersialnya milik Anda, tapi Anda perlu angka yang jujur dulu — dan itu keluar dari ATO-4, bukan dari tugas ini.\n\n### Status\n\nATO-6 selesai. Prasyarat ring-fence #1 terpenuhi: harga list terbit dan bertanggal sebelum penawaran Pridata disusun. Yang berjalan sekarang ATO-4 (Rani), lalu ATO-5.\n"
+        createdAt: "2026-09-29T05:09:33.390Z"
+    completedAt: "2026-09-29T05:09:33.556Z"
+    createdAt: "2026-09-28T20:18:50.909Z"
+    documents:
+      -
+        title: "Daftar Harga NTB-PL-2026-09 (29 September 2026)"
+        format: "markdown"
+        key: "artifact-review-c6bd9e82-b89b-4bad-8b52-b91af020791e"
+        path: "tasks/ato-6/documents/artifact-review-c6bd9e82-b89b-4bad-8b52-b91af020791e.md"
+      -
+        title: "Continuation Summary"
+        format: "markdown"
+        key: "continuation-summary"
+        path: "tasks/ato-6/documents/continuation-summary.md"
+      -
+        title: "Daftar Harga Resmi NTB-PL-2026-09 — Sistem Distribusi & ERP Ato-team"
+        format: "markdown"
+        key: "pricelist"
+        path: "tasks/ato-6/documents/pricelist.md"
+      -
+        title: "Template Proposal Standar PROP-TPL-NTB-2026-09 — terikat Daftar Harga NTB-PL-2026-09"
+        format: "markdown"
+        key: "proposal-template"
+        path: "tasks/ato-6/documents/proposal-template.md"
+    identifier: "ATO-6"
+    parent: "ato-1"
+    priority: "high"
+    startedAt: "2026-09-28T20:18:51.094Z"
+    status: "done"
+    updatedAt: "2026-09-29T05:09:33.556Z"
+    workProducts:
+      -
+        title: "Daftar Harga NTB-PL-2026-09 (29 September 2026)"
+        metadata:
+          attachmentId: "fa918547-0ae1-4e64-93ca-bfb1c3b2e88e"
+          byteSize: 18186
+          contentPath: "/api/attachments/fa918547-0ae1-4e64-93ca-bfb1c3b2e88e/content"
+          contentType: "text/markdown"
+          downloadPath: "/api/attachments/fa918547-0ae1-4e64-93ca-bfb1c3b2e88e/content?download=1"
+          openPath: "/api/attachments/fa918547-0ae1-4e64-93ca-bfb1c3b2e88e/content"
+          originalFilename: "NTB-PL-2026-09-daftar-harga.md"
+        externalId: "fa918547-0ae1-4e64-93ca-bfb1c3b2e88e"
+        isPrimary: true
+        provider: "paperclip"
+        status: "ready_for_review"
+        summary: "Price list resmi NTB bertanggal: harga list Tahun 1 Rp 175.000.000 + ASC Rp 54.000.000/th, isi 47 fitur, batas lingkup, tingkatan SLA, masa berlaku & indeksasi, pernyataan Program Mitra Riset 2026/2027."
+        type: "artifact"
+      -
+        title: "PROP-TPL-NTB-2026-09-template-proposal-standar.md"
+        metadata:
+          attachmentId: "a3b62a76-9e58-4226-855d-80964d909ad0"
+          byteSize: 14425
+          contentPath: "/api/attachments/a3b62a76-9e58-4226-855d-80964d909ad0/content"
+          contentType: "text/markdown"
+          downloadPath: "/api/attachments/a3b62a76-9e58-4226-855d-80964d909ad0/content?download=1"
+          openPath: "/api/attachments/a3b62a76-9e58-4226-855d-80964d909ad0/content"
+          originalFilename: "PROP-TPL-NTB-2026-09-template-proposal-standar.md"
+        externalId: "a3b62a76-9e58-4226-855d-80964d909ad0"
+        provider: "paperclip"
+        status: "active"
+        type: "artifact"

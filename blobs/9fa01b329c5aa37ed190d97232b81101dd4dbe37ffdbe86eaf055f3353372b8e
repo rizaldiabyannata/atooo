@@ -1,0 +1,118 @@
+---
+title: 2026-09-28 - Peta Fitur dan Tingkat Kesulitan ERP Pridata
+date: 2026-09-28
+updated: 2026-09-28
+tags:
+  - project/pridata
+  - type/report
+  - area/backend
+  - area/frontend
+  - feature-map
+status: completed
+repo:
+  - SMD-Pridata-BE
+  - FE_Pridata_Jaya
+related:
+  - "[[Pridata System Project Context]]"
+  - "[[34_Architecture_Deepening_Audit]]"
+---
+
+# Peta fitur & tingkat kesulitan ERP Pridata
+
+Inventaris semua fitur sistem, dipetakan ke empat tingkat kesulitan **untuk membangun atau
+mengubahnya dengan aman**. Sumber: modul `SMD-Pridata-BE/src/routes|services|repositories`
+dan route group `FE_Pridata_Jaya/app/(dashboard)/*` per 2026-09-28 (BE `develop` setelah
+PR #54–#63).
+
+> [!info] Kriteria
+> - **Easy** — CRUD biasa, tanpa efek samping ke modul lain.
+> - **Mid** — ada alur status, relasi antar-entitas, atau scoping per peran.
+> - **High** — menyentuh uang atau stok, butuh transaksi DB, atau banyak aturan bisnis.
+> - **Advance** — infrastruktur lintas modul: keamanan, antrian job, realtime, locking,
+>   analitik SQL besar. Salah di sini berdampak ke banyak fitur sekaligus.
+
+## 🟢 Easy — master data & CRUD sederhana
+
+| Fitur | Modul BE | Halaman FE |
+|---|---|---|
+| Brand, Kategori, Kota | `brand`, `category`, `city` | `*/master-data` |
+| Divisi & Sub-divisi | `division`, `subDivision` | master-data |
+| Supplier | `supplier` | master-data |
+| Driver | `driver` | `gudang/master-data` |
+| Gudang (data warehouse) | `warehouse` | `gudang/master-data` |
+| Profil user / `me` | `me`, `account`, `profile.service` | `/profile` |
+| Daftar role (read-only) | `role` | `owner/roles` |
+| Log ekspor (list/riwayat) | `exportLog` | `owner/log-ekspor`, `riwayat-ekspor` |
+
+## 🟡 Mid — alur bisnis dengan status atau scoping
+
+| Fitur | Catatan |
+|---|---|
+| Kelola User & Member | owner membuat akun (sign-up mandiri mati), assign org role — `user`, `member` |
+| Kelola Toko + Registrasi Toko | `store`, `storeRegistration`, verifikasi pelanggan oleh fakturis |
+| Produk | `product`; stok hanya boleh berubah lewat `stockMovement` |
+| Katalog Digital Marketing | `catalogProduct`: publish/unpublish, summary, insight katalog |
+| Penugasan Sales ↔ Toko | `salesStoreAssignment`, dasar dari `StoreScope` |
+| Penugasan User ↔ Gudang | `warehouseUserAssignment` |
+| Notifikasi | `notification` + monitor, halaman notifikasi |
+| Template Laporan | `reportTemplate`, layout kustom akuntan/owner |
+| Audit Log (lihat) | `auditLog` |
+| API Key | `apiKey` + gate `createApiKeyGate` (lihat [[25_Mobile_Backend_API_Key_Integration]]) |
+| Grade Toko | `grade.service` — `gradeStoresAsOf` (lihat [[18_Grade_Engine_Implementation_Plan]]) |
+| Purchase Order dari toko | `toko/purchase-order` → order |
+
+## 🟠 High — uang, stok, dokumen transaksi
+
+| Fitur | Kenapa sulit |
+|---|---|
+| Order / Pesanan | alur pesanan masuk → invoice, cancel, scoping per peran, idempotency ([[28_Order_Payment_Idempotency_Plan]]) |
+| Invoice Draft → Invoice | `createFromOrder` → `finalize`; jadi dasar piutang |
+| Invoice Cash | alur tunai terpisah (`cashInvoice`) |
+| Invoice PDF | pdfmake 0.3.x lewat factory bersama |
+| Delivery Order | status bertingkat pick → pack → ship → receive; repo terbesar kedua |
+| Pembayaran | `payment` → `invoiceLedger.settleInvoice` |
+| Payment Request + bukti transfer | toko upload bukti → akuntan approve/reject; konfirmasi dari sales |
+| Retur barang | memengaruhi stok **dan** saldo invoice (`adjustInvoiceForReturn`) |
+| Penyesuaian stok | terima barang, catat barang rusak, koreksi |
+| Transfer antar gudang | stok berpindah atomik antar dua gudang |
+| Rekonsiliasi / stock opname | sesi create → confirm/cancel, snapshot, laporan lintas gudang |
+| Piutang & Aging | `receivable`, halaman aging-piutang untuk akuntan dan sales |
+| Sales KPI & Target | target default + per user, konfigurasi, ranking |
+| Dashboard per peran | toko, sales, gudang, fakturis, akuntan, digital marketing |
+
+## 🔴 Advance — infrastruktur inti & logika kritis
+
+| Fitur | Kenapa advance |
+|---|---|
+| Auth + RBAC | Better Auth dengan urutan middleware yang tidak boleh diubah, dua sumbu peran (system/org), `requireAccess`, konstanta saudara wajib ikut dilebarkan |
+| `StoreScope` (`lib/actorScope.ts`) | satu titik penentu toko mana yang terlihat per sesi; salah = data bocor antar toko |
+| Stock movement ledger | satu-satunya penulis kuantitas stok, penjaga stok negatif, re-derive total produk |
+| Invoice ledger + Store Credit | satu-satunya penulis saldo invoice, advisory lock per toko untuk `balanceAfter` |
+| Owner & Accountant Analytics | `ownerAnalytics.repository` (repo terbesar, raw SQL) + `accountantAnalytics` |
+| Laporan & Report Export | `report.repository`, `reportSummaries` / `availableStockCte`, CSV/XLSX/PDF, layout kustom |
+| Background jobs (BullMQ) | worker export, laporan bulanan, impor produk — proses terpisah, hasil ke S3/object storage |
+| Laporan bulanan otomatis | `monthlyReport` + PDF lewat worker |
+| Impor produk dari Excel | queue + log impor, `seed:excel` |
+| Realtime SSE | event bus + Redis pub/sub; daftar topik FE↔BE wajib sinkron |
+| Keamanan edge | rate limit IP+email, `trustedProxies`, API key gate, redaksi log |
+| Observability | logger pino + `requestId` via AsyncLocalStorage (HTTP & job) |
+| OpenAPI contract | docs otomatis, `routeAccess` membaca router asli, contract test di CI ([[32_API_Documentation_Gap_Report_Fix_Plan]]) |
+
+## Ringkasan
+
+| Level | Jumlah fitur |
+|---|---|
+| Easy | 8 |
+| Mid | 12 |
+| High | 14 |
+| Advance | 13 |
+
+## Implikasi
+
+- Hampir semua fitur **High** bergantung pada empat modul inti dari
+  [[34_Architecture_Deepening_Audit]]: `stockMovement`, `invoiceLedger`, `StoreScope`,
+  `reportSummaries`. Perubahan di fitur High sebaiknya lewat modul itu, bukan di sampingnya.
+- Fitur **Easy/Mid** aman untuk onboarding developer baru; fitur **Advance** butuh review
+  dari orang yang paham trust boundary-nya (RBAC, ledger, scope).
+- Level ini penilaian kualitatif (ukuran modul, jumlah endpoint, efek samping), bukan metrik
+  otomatis. Kalau modul baru ditambahkan, perbarui tabel di sini.
