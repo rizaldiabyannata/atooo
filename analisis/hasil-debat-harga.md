@@ -1,6 +1,8 @@
 # Hasil Debat Harga: 5 Sudut Pandang, 2 Putaran
 
 **Tanggal:** 29 September 2026 · **Status:** Rangkuman moderator, menunggu keputusan pemilik · **Dokumen internal**
+> **Catatan:** jawaban pemilik atas pertanyaan terbuka dan skema Pridata yang direvisi ada di `analisis/keputusan-pemilik.md`.
+
 **Menggantikan angka di:** `analisis/revisi-harga-dua-skema.md` (usulan awal moderator), untuk bagian yang disebut di §3.
 
 ## Peserta
