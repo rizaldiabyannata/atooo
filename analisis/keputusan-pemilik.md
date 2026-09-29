@@ -134,3 +134,55 @@ Harga dasar tetap paket "Distributor" (`hasil-debat-harga.md` §3.1). Penyesuaia
 - [id.hostadvice.com: review Hostinger VPS](https://id.hostadvice.com/hosting-company/hostinger-reviews/hostinger-vps-hosting-review/)
 - [tasikhost.com: review KVM 2](https://tasikhost.com/info/teknologi/review-jujur-vps-hostinger-kvm-2-spek-dewa-2-core-8gb-ram-di-region-kuala-lumpur-masih-kencang)
 - [hostinger.com: VPS hosting](https://www.hostinger.com/vps-hosting)
+
+## 8. Revisi 2: penyesuaian fitur termasuk harga, dukungan diturunkan
+
+**Keputusan pemilik:** harga sistem Rp 30 jt juga mencakup penyesuaian/tambahan fitur sampai tingkat menengah, untuk membangun kepercayaan. Dukungan tahunan diturunkan karena Rp 1,25 jt/bln terlihat berat bagi pemilik Pridata. Server berada di pusat data Hostinger, tidak dipegang fisik oleh Ato-team.
+
+### 8.1 Kuota penyesuaian optimal: 12 poin
+
+Bobot memakai kalibrasi ATO-2 §1.2 (Easy 0,5 od, Mid 2,0 od, + overhead 55,5%): **ringan = 1 poin ≈ 0,78 od**, **menengah = 4 poin ≈ 3,1 od**.
+
+Beban tetap untuk Pridata sebelum penyesuaian: implementasi ±12 od + Fase 2 inti 27 od + 20 sesi uji ±7,5 od = ±46,5 od. Kas bersih dari harga sistem: Rp 30 jt − VPS Rp 3,65 jt = Rp 26,35 jt.
+
+| Kuota | Setara | Nilai di tarif list | Total od Pridata | % kapasitas ERP (460 od/th) | Kas per od |
+|---|---|---:|---:|---:|---:|
+| 6 poin | 1 menengah + 2 ringan, ±4,7 od | Rp 8,2 jt | 51,2 | 11,1% | Rp 515 rb |
+| **12 poin** | **3 menengah, atau 2 menengah + 4 ringan, ±9,3 od** | **Rp 16,3 jt** | **55,8** | **12,1%** | **Rp 472 rb** |
+| 20 poin | 5 menengah, ±15,5 od | Rp 27,2 jt | 62,0 | 13,5% | Rp 425 rb |
+
+**Dipilih 12 poin.** Alasannya:
+- Selesai dalam sekitar satu minggu kerja 2 developer, jadi muat di rentang trial sampai beberapa minggu setelah go-live **tanpa menunda Fase 2**. Fase 2 tetap pembangun kepercayaan terbesar, karena menjawab masalah utama Pridata.
+- Setara dengan bank 10 od yang dinilai ATO-2 sebagai konsesi terbaik: bernilai nyata bagi pembeli (Rp 16,3 jt di tarif list), tanpa menyentuh harga berulang.
+- 20 poin menambah beban rawat jangka panjang. Setiap fitur kustom ikut dirawat dalam dukungan yang sekarang lebih murah, dan kas per od turun di bawah separuh rate internal.
+- 1 penyesuaian ringan dikerjakan **selama trial**, sebagai bukti kerja sebelum Pridata memutuskan.
+
+**Batas "di luar paket":** perubahan perhitungan stok, harga, pembayaran, atau piutang (tingkat High/Advance di peta fitur), perubahan dasar hak akses, integrasi pihak luar, dan aplikasi mobile. Tingkat setiap permintaan ditetapkan tertulis sebelum dikerjakan, memakai kriteria peta fitur 2026-09-28. Kustomisasi tetap dibangun di satu kode yang sama (konfigurasi/feature flag), bukan fork.
+
+### 8.2 Dukungan tahunan: Rp 750.000/bln
+
+- Isi dukungan dipangkas ke yang memang dipegang Ato-team:
+  - bantuan ±3 jam/bln, respons 1 hari kerja;
+  - bug kritis segera, bug lain masuk rilis berkala;
+  - patch keamanan;
+  - backup harian otomatis off-site dengan uji pulih 1×/th;
+  - pemantauan otomatis dan pengingat perpanjangan server.
+- **Infrastruktur fisik menjadi tanggung jawab Hostinger**, dan ini tertulis di kontrak.
+- Bayar tahunan di muka: **Rp 7,5 jt** (hemat 2 bulan). Ini juga membantu kas Ato-team.
+- Harga standar dukungan ditampilkan Rp 1,5 jt/bln.
+- Garansi tetap 3 bulan. Garansi 6 bulan akan menurunkan kas Tahun 1 Ato-team sebesar Rp 2,25 jt, dan tim tidak punya modal.
+
+**Konsekuensi yang diterima:** dengan beban layanan Hemat (±10 od/th), biaya peluang dukungan ±Rp 9,5 jt/th, kira-kira sama dengan harga Rp 9 jt/th. Dukungan Pridata **tidak menghasilkan marjin** sampai ada pelanggan lain yang ikut menanggung pemeliharaan bersama. Kas keluar nyata hampir nol, karena backup memakai free tier dan pemantauan otomatis.
+
+### 8.3 Beban Pridata yang baru
+
+| | Tahun 1 | Tahun 2 | Tahun 3 | 3 tahun |
+|---|---:|---:|---:|---:|
+| Sistem (+ Fase 2 + 12 poin + VPS 24 bln) | Rp 30.000.000 | — | — | Rp 30.000.000 |
+| Dukungan (Th1 7 bulan) | Rp 5.250.000 | Rp 9.000.000 | Rp 9.000.000 | Rp 23.250.000 |
+| Perpanjangan VPS | — | — | ±Rp 2.800.000 | ±Rp 2.800.000 |
+| **Total** | **Rp 35.250.000** | **Rp 9.000.000** | **±Rp 11.800.000** | **±Rp 56.000.000** |
+
+- Dibanding revisi sebelumnya, total 3 tahun turun dari ±Rp 72,8 jt ke **±Rp 56 jt**. Biaya berjalan Tahun 2 turun ke 0,45% omzet.
+- **Kas masuk Ato-team Tahun 1: ±Rp 31,6 jt.**
+- *Koreksi kecil:* versi sebelumnya menghitung dukungan Tahun 1 selama 8 bulan. Dengan go-live bulan ke-2 dan garansi 3 bulan, yang benar 7 bulan.
