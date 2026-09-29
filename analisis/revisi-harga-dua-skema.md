@@ -1,6 +1,8 @@
 # Revisi Harga: Dua Skema (Pridata & Kompetitor Pridata)
 
 **Tanggal:** 29 September 2026 · **Status:** Draf diskusi, belum keputusan · **Dokumen internal**
+> **Catatan:** angka di dokumen ini sudah direvisi lewat debat 5 sudut pandang. Lihat `analisis/hasil-debat-harga.md` untuk angka yang berlaku.
+
 **Dasar:** ATO-2 Revisi 3, ATO-3, ATO-4, keputusan CEO (ATO-1), NTB-PL-2026-09, dan riset harga pasar software distribusi/ERP di Indonesia (sumber di §8).
 
 ---
