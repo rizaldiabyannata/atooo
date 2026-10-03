@@ -2,6 +2,8 @@
 
 **Tanggal:** 29 September 2026 · **Dokumen internal** · Menjawab §6 `analisis/revisi-harga-dua-skema.md` dan menyesuaikan `analisis/hasil-debat-harga.md`.
 
+> **Pembaruan 3 Oktober 2026:** angka harga Pridata di §4 dan §8 diganti struktur dengan ruang negosiasi (Paket Inti Rp 32,5 jt / Lengkap Rp 37 jt, lantai Rp 30 / 34 jt, dukungan Rp 850 → 750 rb). Lihat `analisis/harga-negosiasi.md`.
+
 ## 1. Jawaban pemilik
 
 | # | Pertanyaan | Jawaban |
