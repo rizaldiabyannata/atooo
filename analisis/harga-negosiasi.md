@@ -39,7 +39,7 @@ Label "Rp 60 jt, potongan 50%" juga dinilai keliru oleh keempat agen, termasuk a
 |---|---|---|
 | Angka pembuka | **Paket Lengkap Rp 37 jt** (di antara Rp 36 negosiator dan Rp 38 CFO/analis) | TCO 3 th pembuka ±Rp 64,5 jt, masih di bawah batas pergi pembeli (Rp 60–65 jt) dan di bawah Odoo (Rp 70–121 jt) |
 | Letak kenaikan | Kontribusi modul **Rp 7,5 jt** di T3; sisanya di T1/T2 | Menjawab keberatan CFO bahwa kenaikan tidak boleh seluruhnya menumpuk di termin bersyarat |
-| Batas waktu T3 | **6 bulan setelah go-live** (pembeli 4, analis 6, CFO/negosiator ±8 bln) | Fase 2 diperkirakan 27–48 hari kerja. Empat bulan tidak realistis; delapan bulan membuat pembeli menunggu terlalu lama |
+| Batas waktu T3 | **2 bulan setelah go-live** (debat: pembeli 4, analis 6, CFO/negosiator ±8 bln; diputuskan 6, lalu dipercepat pemilik, lihat §3.1) | Pemilik menilai pelunasan ±9 bulan terlalu lama bagi tim tanpa modal |
 | Garansi | **3 bln sistem + 3 bln khusus Modul Penerimaan Barang sejak lulus.** Kartu terakhir: sistem 4 bln | Usulan analis & negosiator. Risiko produk baru memang ada di modul itu |
 | Prabayar dukungan | **11 × tarif bulanan** (bayar 11, dapat 12) | CFO: prabayar 10× membuat dukungan 21% di bawah biaya |
 
@@ -57,15 +57,34 @@ Label "Rp 60 jt, potongan 50%" juga dinilai keliru oleh keempat agen, termasuk a
 
 | Termin | Kapan | Inti | Lengkap |
 |---|---|---:|---:|
-| Trial 30–60 hari | — | Rp 0 | Rp 0 |
+| Trial maks 30 hari | — | Rp 0 | Rp 0 |
 | 1 | Deal setelah trial layak; VPS dibeli dari sini | Rp 12.000.000 | Rp 12.000.000 |
-| 2 | Go-live (boleh dicicil 2× bulanan) | Rp 13.000.000 | Rp 17.500.000 |
-| 3 | Modul lulus T1/T3/T4/T5, paling lambat 6 bln setelah go-live | Rp 7.500.000 | Rp 7.500.000 |
+| 2 | Go-live, ≤ 3 minggu setelah deal, tanpa cicilan | Rp 13.000.000 | Rp 17.500.000 |
+| 3 | Modul lulus T1/T3/T4/T5, paling lambat 2 bln setelah go-live | Rp 7.500.000 | Rp 7.500.000 |
 
 **Aturan T3:**
-- Bila modul belum lulus dalam 6 bulan **karena kita**, kontribusi batal dan dukungan tidak ditagih sampai modul lulus.
-- Bila terlambat **karena Pridata** (sesi uji tidak dijadwalkan, data tidak diserahkan), T3 jatuh tempo di bulan ke-6.
+- Bila modul belum lulus dalam 2 bulan setelah go-live **karena kita**, kontribusi batal dan dukungan tidak ditagih sampai modul lulus.
+- Bila terlambat **karena Pridata** (sesi uji tidak dijadwalkan, data tidak diserahkan), T3 tetap jatuh tempo 2 bulan setelah go-live.
 - Lingkup modul dikunci sesuai bagian 02 proposal. Perubahan dibayar dari poin atau dengan tarif hari kerja.
+
+### 3.1 Jadwal dipercepat (keputusan pemilik, 3 Oktober 2026)
+
+Jadwal lama: trial 30–60 hari, T2 boleh dicicil 2 bulan, T3 sampai 6 bulan setelah go-live. Akibatnya pelunasan bisa makan ±9 bulan sejak trial dimulai. Pemilik menilai ini terlalu lama. Nilai termin dan isi paket **tidak berubah**, hanya jadwalnya:
+
+| Waktu sejak trial dimulai | Kejadian | Kas masuk (Lengkap) |
+|---|---|---:|
+| Bulan 0 | Trial dimulai, paling lama 30 hari | Rp 0 |
+| ±Bulan 1 | Deal → T1 | Rp 12.000.000 |
+| ±Bulan 1,7 | Go-live, ≤ 3 minggu setelah deal → T2, tanpa cicilan | Rp 17.500.000 |
+| ≤ Bulan 3,7 | Modul lulus, ≤ 2 bulan setelah go-live → T3 | Rp 7.500.000 |
+
+**Hasilnya:** 80% harga sistem masuk ±3 minggu setelah deal, dan semua lunas ≤ ±3,7 bulan sejak trial.
+
+**Konsekuensi:**
+- **Modul Penerimaan Barang mulai dibangun saat deal, bukan setelah go-live.** Dalam ±2,7 bulan setelah deal, tim mengerjakan implementasi ±12 hk, poin 9,3 hk, dan modul 27–35 hk, total ±48–56 hk. Kapasitas 2 developer ±119 hk dalam rentang itu, jadi muat, tetapi hanya bila pelanggan lain tidak masuk di periode yang sama. **Bila modul membengkak ke 48 hk, total ±69 hk dan masih muat, tetapi tanpa cadangan.**
+- **Pridata harus menyediakan 20 sesi uji dalam ±8 minggu (±2–3 sesi/minggu).** Ini tertulis di klausul kerja sama riset. Bila sesi tidak tersedia, T3 tetap jatuh tempo pada batas waktu.
+- **Risiko kontribusi hilang naik.** Batas 2 bulan lebih ketat dari 6 bulan. Pengendaliannya: lingkup dikunci, dan keterlambatan karena Pridata tidak dihitung.
+- **Cicilan T2 tidak lagi ditawarkan di proposal.** Cicilan disimpan sebagai kartu konsesi (lihat §5).
 
 ## 4. Pembuka, target, lantai
 
@@ -110,6 +129,7 @@ Dalam juta rupiah. *Bila kontribusi modul dibayar. Bila batal karena kita, kuran
 | 1. Setelah trial layak | Kontribusi Rp 7,5 → 6,5 jt (total **Rp 36 jt**) | Dukungan Tahun 2 dibayar di muka + T1 Rp 12 jt |
 | 2 | Kontribusi → Rp 6 jt (total **Rp 35 jt**) + kunci harga dukungan 36 bln | Kontrak dukungan 24 bln + jadwal 20 sesi uji + PIC gudang tertulis |
 | 3 | Dukungan Rp 850 → 800 rb | Tanda tangan ≤ 14 hari setelah trial dinyatakan layak |
+| Kartu cadangan (gratis bagi kas jangka panjang) | T2 dicicil 2× bulanan | Dukungan Tahun 2 dibayar di muka, atau T1 naik ke Rp 14 jt |
 | Penutup (pilih satu) | Tambahan poin Rp 4,5 → 4 jt dan kontribusi → Rp 5 jt (total **Rp 34 jt**), **atau** dukungan → Rp 750 rb, **atau** +1 hari pendampingan di lokasi | Referensi tertutup untuk calon pembeli di luar pasar Pridata |
 
 **Aturan main:**
@@ -168,7 +188,7 @@ Dalam juta rupiah. *Bila kontribusi modul dibayar. Bila batal karena kita, kuran
 1. **Status pajak Ato-team (PKP atau bukan).** Pembeli menilai "belum termasuk pajak" tanpa angka sebagai biaya tersembunyi. Proposal memakai placeholder `[status pajak]`.
 2. **Pihak penitip kode sumber** (notaris atau pihak ketiga lain) dan biayanya. Belum dicek. Perkiraan dokumen pemasangan ±2 hari kerja, dibuat sekali untuk semua pelanggan.
 3. **Risiko yang diterima:**
-   - Bila Fase 2 membengkak ke 48 hari kerja dan modul tidak lulus dalam 6 bulan karena kita, kontribusi Rp 5–7,5 jt hilang dan dukungan tertunda.
+   - Bila Fase 2 membengkak ke 48 hari kerja dan modul tidak lulus dalam 2 bulan setelah go-live karena kita, kontribusi Rp 5–7,5 jt hilang dan dukungan tertunda.
    - Paket Lengkap lalu efektif Rp 29,5 jt untuk 12 poin, di bawah lantai CFO.
    - Ini harga dari permintaan pembeli yang paling ia pertahankan. Pengendaliannya: lingkup dikunci, dan keterlambatan karena Pridata tidak dihitung.
 4. **Harga pekerjaan di luar paket belum diputuskan** (tarif hari kerja, kunjungan lokasi, pelatihan tambahan, migrasi data historis, integrasi, aplikasi mobile, perangkat keras). Atas permintaan pemilik, bagian "Di luar harga" dan semua sebutan tarif Rp 1.750.000 dihapus dari proposal. Proposal kini hanya menyebut pekerjaan di luar lingkup "dibahas terpisah" dan baru dikerjakan setelah disetujui tertulis. Batas "di luar paket" untuk poin penyesuaian tetap tercantum.
