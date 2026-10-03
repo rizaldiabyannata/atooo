@@ -171,3 +171,4 @@ Dalam juta rupiah. *Bila kontribusi modul dibayar. Bila batal karena kita, kuran
    - Bila Fase 2 membengkak ke 48 hari kerja dan modul tidak lulus dalam 6 bulan karena kita, kontribusi Rp 5–7,5 jt hilang dan dukungan tertunda.
    - Paket Lengkap lalu efektif Rp 29,5 jt untuk 12 poin, di bawah lantai CFO.
    - Ini harga dari permintaan pembeli yang paling ia pertahankan. Pengendaliannya: lingkup dikunci, dan keterlambatan karena Pridata tidak dihitung.
+4. **Harga pekerjaan di luar paket belum diputuskan** (tarif hari kerja, kunjungan lokasi, pelatihan tambahan, migrasi data historis, integrasi, aplikasi mobile, perangkat keras). Atas permintaan pemilik, bagian "Di luar harga" dan semua sebutan tarif Rp 1.750.000 dihapus dari proposal. Proposal kini hanya menyebut pekerjaan di luar lingkup "dibahas terpisah" dan baru dikerjakan setelah disetujui tertulis. Batas "di luar paket" untuk poin penyesuaian tetap tercantum.
