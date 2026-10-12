@@ -2,6 +2,7 @@
 
 **Tanggal:** 29 September 2026 · **Status:** Rangkuman moderator, menunggu keputusan pemilik · **Dokumen internal**
 **Menggantikan angka di:** `analisis/revisi-harga-dua-skema.md` (usulan awal moderator), untuk bagian yang disebut di §3.
+> **Catatan 12 Oktober 2026:** §3.2 (skema Pridata) ditinjau ulang setelah diketahui Pridata sudah memakai Ketoko.co.id (Rp 50 rb/bln). Lihat `analisis/hasil-debat-ketoko.md`. Bila omzet Pridata Rp 2 M per tahun, skema Mitra Lab di sana yang berlaku.
 
 ## Peserta
 
